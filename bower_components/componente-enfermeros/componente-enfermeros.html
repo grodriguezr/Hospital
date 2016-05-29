@@ -1,0 +1,96 @@
+<link rel="import" href="../paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-list/iron-list.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+<!--<link rel="import" href="../registro-emp/registro-emp.html">-->
+<dom-module id="componente-enfermeros">
+	<style is="custom-style">
+		#enfComp{
+				background-color: #607D8B;
+
+		}
+		paper-dialog{
+  			width:50%;
+  			height: 100%;
+  		}
+
+	</style>
+	<template>
+		<div id="enfermeros">
+				<paper-header-panel class="flex">
+				    <paper-toolbar id="enfComp">
+				    	<div class="title">Enfermeros</div>
+				    	<paper-icon-button icon="search"></paper-icon-button>
+				    	<paper-icon-button id="agregarE" icon="add"></paper-icon-button>
+				    	<paper-dialog id="dialogAgregarE" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+	    						
+	    						<div><!--<registro-emp></registro-emp>--></div>
+	    						<div class="buttons">
+	       							<!--<paper-button dialog-dismiss>Aceptar</paper-button>
+	       							<paper-button dialog-dismiss>Cerrar</paper-button>-->
+
+	    						</div>
+						</paper-dialog>
+				    	<paper-icon-button icon="clear"></paper-icon-button>
+				    		
+
+				    </paper-toolbar>
+				</paper-header-panel>
+				<div class="ironList" style="overflow: auto;">
+					
+					<iron-list id="lista" items="[[listaMedicos]]" as="item" selection-enabled>
+						<template is="dom-bind">
+							
+						    <div id="elemento">
+						    	<span id="cod">
+						    		[[item.codigo]]
+						    	</span>
+						    	<span id="nom">
+						    		[[item.nombre]]
+						    	</span>
+						    	<span id="apell">
+						    		[[item.apellido]]
+						    	</span>
+						    	<span class="icono">
+						    		<paper-icon-button icon="check-box-outline-blank"></paper-icon-button>
+						    	</span>
+						    </div>
+							
+						</template>
+					</iron-list>
+				</div>
+		</div>
+		<script>
+			agregarE.addEventListener('click', function(e) {
+	            	var agrE = document.querySelector('#dialogAgregarE');
+	            	agrE.toggle();
+	            	//this.$.cuadro.toggle();
+				});
+		</script>
+	</template>
+
+
+
+</dom-module>
+<script>
+	Polymer({
+		is: 'componente-enfermeros',
+		properties: {
+		
+		},
+		ready: function(){
+			
+
+		},
+		mostrarConsola: function(mensaje){
+		},
+
+		
+		});
+
+</script>

@@ -1,0 +1,344 @@
+<meta charset="utf-8">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../iron-list/iron-list.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+
+
+
+<dom-module id="componente-herramientas">
+	<style is="custom-style">
+		/*recontruir!!!!!!!*/
+		paper-material{
+
+			width: 513px;
+			height: 400px;
+		 	border-radius: 5px;
+		 	/*background-color: rgb(100, 181, 246);*/
+		 	margin-bottom: 30px;
+		 	margin-right: 50px;
+		 	float: left;
+
+
+		}
+		#medicos paper-header-panel{
+			color: black;
+		}
+		.med{
+			--paper-toolbar-background: red;
+		}
+		paper-toolbar.med{
+			background-color: #009688;
+		}
+		paper-toolbar.enf{
+			background-color: #607D8B;
+		}
+		paper-toolbar.botic{
+			background-color: #0091EA;
+		}
+		paper-toolbar.paci{
+			background-color: #C62828;
+		}
+		div #lista{
+			width: 100px;
+			height: 100px;
+		}
+		.ironList{
+			height: 300px;
+		}
+		span{
+			display: block;
+		}
+
+		.day{
+			width: 100%;
+			color: white;
+			font-size: 1em;
+			padding: 10px;
+		}
+
+		.desc{
+			display: inline-block;
+			width: 30%;
+			font-size: 25px;
+			margin-left: 15px;
+			margin-top: -25px;
+		}
+		h1 {
+			font-family: 'Roboto','Noto';
+			color: #444;
+			font-size: 35px;
+			font-weight: 300;
+		}
+
+	</style>
+	<template>
+		<h1>ADMINISTRACIÓN DE USUARIOS</h1>
+		<paper-material>
+			<div id="medicos">
+				<paper-header-panel class="flex">
+				    <paper-toolbar class="med">
+				    	<div class="title">Médicos</div>
+				    	<paper-icon-button icon="search"></paper-icon-button>
+				    	<paper-icon-button icon="add"></paper-icon-button>
+				    	<paper-icon-button icon="clear"></paper-icon-button>
+				    	<paper-icon-button icon="arrow-drop-down"></paper-icon-button>
+				    </paper-toolbar>
+
+				   
+
+				</paper-header-panel>
+				<div class="ironList">
+					
+					<iron-list id="list" items="[[usuarios]]" as="item">
+						<template>
+							
+						    <div id="lista">
+						    	<span>
+						    		[[item.name]]
+						    	</span>
+						    </div>
+						</template>
+					</iron-list>
+				</div>
+
+				
+			</div>
+		</paper-material>
+		<paper-material>
+			<div id="enfermeros">
+				<paper-header-panel class="flex">
+				    <paper-toolbar class="enf">
+				    	<div class="title">Enfermeros</div>
+				    	<paper-icon-button icon="search"></paper-icon-button>
+				    	<paper-icon-button icon="add"></paper-icon-button>
+				    	<paper-icon-button icon="clear"></paper-icon-button>
+				    	<paper-icon-button icon="arrow-drop-down"></paper-icon-button>
+				    </paper-toolbar>
+				</paper-header-panel>
+			</div>
+		</paper-material>
+
+
+		<paper-material>
+			<div id="boticarios">
+				<paper-header-panel class="flex">
+				    <paper-toolbar class="botic">
+				    	<div class="title">Boticarios</div>
+				    	<paper-icon-button icon="search"></paper-icon-button>
+				    	<paper-icon-button icon="add"></paper-icon-button>
+				    	<paper-icon-button icon="clear"></paper-icon-button>
+				    	<paper-icon-button icon="arrow-drop-down"></paper-icon-button>
+				    </paper-toolbar>
+				</paper-header-panel>
+			</div>
+		</paper-material>
+		<paper-material>
+			<div id="pacientes">
+				<paper-header-panel class="flex">
+				    <paper-toolbar class="paci">
+				    	<div class="title">Pacientes</div>
+				    	<paper-icon-button icon="search"></paper-icon-button>
+				    	<paper-icon-button icon="add"></paper-icon-button>
+				    	<paper-icon-button icon="clear"></paper-icon-button>
+				    	<paper-icon-button icon="arrow-drop-down"></paper-icon-button>
+				    </paper-toolbar>
+				</paper-header-panel>
+			</div>
+		</paper-material>
+		<!--<paper-material elevation="3" id="personal" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="social:group"></iron-icon>
+				</div>
+				<div id="etiqueta">
+					<p>
+						PERSONAL
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="medicinas" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="maps:local-hospital"></iron-icon>
+				</div>		
+				<div id="etiqueta">
+					<p>
+						MEDICINAS
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="inventario" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="assignment"></iron-icon>
+				</div>
+			
+				
+				<div id="etiqueta">
+					<p>
+						INVENTARIO
+					</p>
+				</div>
+			</div>
+		</paper-material>
+
+		<paper-material elevation="3" id="pedidos" class="elemento"> 
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="maps:local-shipping"></iron-icon>
+				</div>
+				
+				
+				<div id="etiqueta">
+					<p>
+						PEDIDOS
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="estadisticas" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="assessment"></iron-icon>
+				</div>
+				
+				
+				<div id="etiqueta">
+					<p>
+						ESTADÍSTICAS
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="informes" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="subject"></iron-icon>
+				</div>
+				
+				
+				<div id="etiqueta">
+					<p>
+						INFORMES
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="calendario" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="event"></iron-icon>
+				</div>
+				
+				
+				<div id="etiqueta">
+					<p>
+						CALENDARIO
+					</p>
+				</div>
+			</div>
+		</paper-material>-->
+
+		
+		<script>
+			/*var usuarios = [{name:"John", lastName:"Doe", age:46}, {name:"Gustavo", lastName:"Rodriguez", age:25}, {name:"Jon", lastName:"Snow", age:30}];
+			/*personal.addEventListener("mouseover", function(){
+				personal.setAttribute("elevation", "0");
+				console.log("sdasdad");
+			});
+			personal.addEventListener("mouseout", function(){
+				personal.setAttribute("elevation", "3");
+			});
+
+			medicinas.addEventListener("mouseover", function(){
+				medicinas.setAttribute("elevation", "0");
+			});
+			medicinas.addEventListener("mouseout", function(){
+				medicinas.setAttribute("elevation", "3");
+			});
+
+			inventario.addEventListener("mouseover", function(){
+				inventario.setAttribute("elevation", "0");
+			});
+			inventario.addEventListener("mouseout", function(){
+				inventario.setAttribute("elevation", "3");
+			});
+
+			pedidos.addEventListener("mouseover", function(){
+				pedidos.setAttribute("elevation", "0");
+			});
+			pedidos.addEventListener("mouseout", function(){
+				pedidos.setAttribute("elevation", "3");
+			});
+
+			estadisticas.addEventListener("mouseover", function(){
+				estadisticas.setAttribute("elevation", "0");
+			});
+			estadisticas.addEventListener("mouseout", function(){
+				estadisticas.setAttribute("elevation", "3");
+			});
+
+			informes.addEventListener("mouseover", function(){
+				informes.setAttribute("elevation", "0");
+			});
+			informes.addEventListener("mouseout", function(){
+				informes.setAttribute("elevation", "3");
+			});
+
+			calendario.addEventListener("mouseover", function(){
+				calendario.setAttribute("elevation", "0");
+			});
+			calendario.addEventListener("mouseout", function(){
+				calendario.setAttribute("elevation", "3");
+			});*/
+
+
+		</script>
+	</template>
+
+
+
+
+
+
+</dom-module>
+
+<script>
+	
+
+ 					
+	Polymer({
+		is: 'componente-herramientas',
+		arreglo: function(){
+			/*this.set('usuarios', [{name:"John", lastName:"Doe", age:46}, {name:"Gustavo", lastName:"Rodriguez", age:25}, {name:"Jon", lastName:"Snow", age:30}]);
+			    this.$.list.fire('resize');
+			    document.querySelector('iron-list').fire('resize');*/
+			    
+
+		},
+		properties: {
+				
+ 			},	
+				
+		ready: function(){
+			console.log("sadsadadsada");
+			this.usuasrios = [{name:"John", lastName:"Doe", age:46}, {name:"Gustavo", lastName:"Rodriguez", age:25}, {name:"Jon", lastName:"Snow", age:30}];
+			    
+		}
+		
+	});
+</script>
+

@@ -1,0 +1,259 @@
+<meta charset="utf-8">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+
+<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../paper-styles/paper-styles-classes.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
+
+
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../paper-menu/paper-menu.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<!--<link rel="import" href="../componente-herramientas/componente-herramientas.html">-->
+<link rel="import" href="../paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../neon-animation/neon-animations.html">
+<link rel="import" href="../componente-medicamentos/componente-medicamentos.html">
+<link rel="import" href="../componente-urgencias/componente-urgencias.html">
+<link rel="import" href="../componente-cirugia/componente-cirugia.html">
+
+<link rel="stylesheet" href="../../js/materialize.min.js">
+
+
+
+
+
+
+
+
+<dom-module id="componente-opciones">
+
+	<style is="custom-style">
+			:host{
+				
+				overflow: hidden;
+				display: block;
+				--paper-tabs-selection-bar-color: white;
+
+			}
+			@font-face {
+			font-family: Roboto Condensed;
+			src: url("../../fonts/Roboto_Condensed/RobotoCondensed-Light.ttf");
+			}
+
+			/*.menu-content{
+
+				color: white;
+			}
+			#drawer{
+				background-color: #3F51B5;
+			}*/
+			.contenedorHerramientas{
+				width: 100%;
+				margin-top: 25px;
+				margin-left: 40px;
+			}
+			
+			#drawer{
+				height: 100%;
+				width: 100%;
+				/*background-color: black;*/
+			}
+			#main{
+				width: 100%;
+				background-color: #E0E0E0;
+			}
+			iron-icon{
+				width: 30px;
+				height: 30px;
+				color: #607D8B;
+
+			}
+			paperDrawerPanel{
+				width: 100%;
+			}
+			
+			#areas{
+				position: absolute;
+				width: 93%;
+				height: 40%;
+				
+			}	
+			
+
+			paper-toolbar{
+				--paper-toolbar-background: #00796B;
+			}
+			
+
+   			.menuItem {
+
+   				/*font-family: 'Roboto','Noto';*/
+				color: #444;
+				font-size: 16px;
+				font-weight:100;
+				
+  
+				--paper-item-focused: {
+      				background: #009688;
+    			
+				};
+				
+
+				--paper-item-focused-before: {
+      				opacity: 0;
+   			 	};
+   			}
+   			paper-item:hover{
+   				transition: background-color .3s;
+   				background: #B2DFDB;
+   			}
+   			
+
+   			 paper-dropdown-menu.custom {
+		    	--paper-input-container-label: {
+			    	color: white;
+			    	font-style: Roboto Condensed;
+			    	text-align: center;
+			    	
+		    	};
+		    	--paper-input-container-underline: {
+      				display: none;
+    			};
+
+
+		}
+            
+			
+
+	</style>
+
+	<template>
+		<paper-drawer-panel drawer-width="200px" id="paperDrawerPanel">
+		    <paper-header-panel drawer  id="drawer">
+		      	<paper-toolbar id="drawerToolbar">
+		      		    <span class="paper-font-title"></span>
+		  		</paper-toolbar>
+
+		  		<paper-menu class="menu-content">
+					  <paper-item id="paperMenuForthItem"><iron-icon icon="maps:local-hospital" item-icon></iron-icon><div class="menuItem"><p>&nbsp;&nbsp;&nbsp;MEDICAMENTOS</p></div></paper-item>
+					  <paper-item id="paperMenuForthItem"><iron-icon icon="assignment" item-icon></iron-icon><div class="menuItem"><p>&nbsp;&nbsp;&nbsp;INFORMES</p></div></paper-item>
+					  <paper-item id="paperMenuForthItem"><iron-icon icon="maps:local-shipping" item-icon></iron-icon><div class="menuItem"><p>&nbsp;&nbsp;&nbsp;PEDIDOS</p></div></paper-item>
+					  <paper-item id="paperMenuSecondItem"><iron-icon icon="assessment" item-icon></iron-icon><div class="menuItem"><p>&nbsp;&nbsp;&nbsp;ESTADÍSTICAS</p></div></paper-item> 
+					  <paper-item id="paperMenuSecondItem"><iron-icon icon="event" item-icon></iron-icon><div class="menuItem"><p>&nbsp;&nbsp;&nbsp;CALENDARIO</p></div></paper-item>	
+					  <paper-item id="paperMenuSecondItem"><iron-icon icon="settings" item-icon></iron-icon><div class="menuItem"><p>&nbsp;&nbsp;&nbsp;OPCIONES</p></div></paper-item>
+				</paper-menu>
+		    </paper-header-panel>
+		    <paper-header-panel main id="main">
+
+			    <paper-toolbar id="mainToolbar">
+			    	<paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+			    	<div class="title">Sistema de administración de inventario</div>
+			    	<div>
+			    		<paper-dropdown-menu class="custom" id="menuDesplegable" label="Bienvenido" no-label-float>
+							<paper-listbox class="dropdown-content" on-click="resetMenu">
+							    <paper-item>Mi cuenta</paper-item>
+							    <paper-item>Editar perfil</paper-item>
+								<paper-item>Cerrar sesión</paper-item>
+						   
+							</paper-listbox>
+						</paper-dropdown-menu>
+
+
+			    	</div>
+
+			    	<!--<paper-tabs selected="0" class="bottom self-end" style="width: 100%;" noink>
+					    <paper-tab>CONSULTA EXTERNA</paper-tab>
+					    <paper-tab>CIRUGÍA</paper-tab>
+   					    <paper-tab>URGENCIAS</paper-tab>
+				    </paper-tabs>-->
+			 	</paper-toolbar>
+			 	<div class="contenedorHerramientas">
+			 		<neon-animatable>
+			 			<div id="areas">
+			 				<componente-medicamentos></componente-medicamentos>
+			 			<!</div>
+			 	 		<!--<componente-consulta-externa></componente-consulta-externa>-->
+			 	 	</neon-animatable>
+
+			 	</div>
+
+			    <!--<iron-pages selected="0">
+				    <div class="contentMargin"><h2><componente-herramientas></componente-herramientas></div>
+				    <div class="contentMargin"><h2>Google Cards</h2></div>
+				    <div class="contentMargin"><h2>Feedback Form</h2></div>
+				    <div class="contentMargin"><h2>Additional right drawer</h2></div>
+				    <div class="contentMargin"><h2>Google Charts</h2></div>
+				</iron-pages>-->
+			</paper-header-panel>
+  		</paper-drawer-panel>
+
+
+
+  		
+
+		<script>
+		  	
+			/*paperMenuFirstItem.addEventListener('click', function(e) {
+				var pages = document.querySelector('iron-pages');
+				pages.select(0);
+			});
+			paperMenuSecondItem.addEventListener('click', function(e) {
+				var pages = document.querySelector('iron-pages');
+				pages.select(1);
+			});
+			paperMenuThirdItem.addEventListener('click', function(e) {
+				var pages = document.querySelector('iron-pages');
+				pages.select(2);
+			});
+			/*paperMenuForthItem.addEventListener('click', function(e) {
+				var pages = document.querySelector('iron-pages');
+				pages.select(3);
+			});*/
+			/*paperMenuFifthItem.addEventListener('click', function(e) {
+				var pages = document.querySelector('iron-pages');
+				pages.select(4);
+			});*/
+	</script>
+
+	</template>
+</dom-module>
+
+
+<script>
+	
+	
+	Polymer({
+		is: 'componente-opciones',
+		properties: {
+		
+		},
+		ready: function(){
+			this.$.paperDrawerPanel.fire('resize');
+
+
+
+		},
+		mostrarConsola: function(mensaje){
+		},
+		resetMenu: function(event){
+				document.querySelector('#menuDesplegable')._onIronDeselect();
+
+		}
+
+		
+		});
+</script>
+
+

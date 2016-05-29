@@ -1,0 +1,138 @@
+
+
+
+<dom-module id="form-2">
+ <style>
+
+
+paper-input{
+ width: auto;
+ margin-left: 10%;
+ 
+ margin-right: 10%;
+
+
+}
+
+paper-dropdown-menu{
+
+
+width: auto;
+margin-left: 10%;
+ 
+margin-right: 10%;
+
+}
+paper-item{
+    font-family: Roboto;
+}
+
+
+
+
+paper-button{
+
+  background: #303F9F;
+  color: #FFFFFF;
+  margin-left: 10%;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  width: 15%;
+ 
+
+
+}
+
+paper-material{
+ 
+ margin-top: 2%;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: 2%;
+ padding-top: 2%;
+ width: 50%;
+ vertical-align: middle;
+
+}
+
+
+
+
+ </style>
+ <div>
+<template>
+    <paper-material elevation="5">
+    
+    <form is="iron-form" >
+ 
+     
+    <paper-input  label="Nombres"></paper-input>
+    <paper-input label="Apellidos" ></paper-input>
+    <paper-input label="Cargo" ></paper-input>
+    <paper-input label="Cedula" type="number" ></paper-input>
+    <paper-input label="Direccion" ></paper-input>
+    <paper-input label="Edad" type="number"></paper-input>
+    <paper-dropdown-menu label="Tipo de sangre">
+    <paper-listbox class="dropdown-content">
+    <paper-item>O-</paper-item>
+    <br>
+    <paper-item>O+</paper-item>
+    <br>
+    <paper-item>A-</paper-item>
+    <br>
+    <paper-item>A+</paper-item>
+    <br>
+    <paper-item>B-</paper-item>
+    <br>
+    <paper-item>B+</paper-item>
+    <br>
+    <paper-item>AB-</paper-item>
+    <br>
+    <paper-item>AB+</paper-item>
+    </paper-listbox>
+    </paper-dropdown-menu>
+    <paper-dropdown-menu label="Sexo">
+    <paper-listbox class="dropdown-content">
+    <paper-item>Masculino</paper-item>
+    <br>
+    <paper-item>Femenino</paper-item>
+
+    </paper-listbox>
+    </paper-dropdown-menu>
+    <paper-input label="Estatura" type="number"><div suffix>Cm</div></paper-input> 
+    <paper-input label="Peso" type="number"><div suffix>Kg</div></paper-input> 
+    <paper-input label="Fecha de nacimiento" type="date"></paper-input> 
+    <paper-input label="Telefono" type="number" ></paper-input>  
+    <paper-input label="Celular" type="number"></paper-input> 
+    <paper-input label="Email" type="email"></paper-input>   
+  
+
+        <paper-button raised > <iron-icon icon="send"></iron-icon> </paper-button>
+ 
+        
+
+    </form>
+
+
+
+</paper-material>
+</template>
+</div>
+</dom-module>
+<script>
+    Polymer({
+        is: 'form-2',
+        properties: {
+        
+        },
+        verificar: function(){
+            console.log(" listo!");
+        },
+        
+    });
+</script>
+
+
+
+

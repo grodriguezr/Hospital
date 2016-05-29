@@ -1,0 +1,133 @@
+
+
+
+<dom-module id="form-3">
+ <style>
+
+
+
+paper-input{
+ width: auto;
+ margin-left: 10%;
+ 
+  margin-right: 10%;
+
+
+}
+paper-textarea{
+ width: auto;
+ margin-left: 10%;
+ 
+ margin-right: 10%;
+
+
+}
+
+paper-dropdown-menu{
+
+
+width: auto;
+margin-left: 10%;
+ 
+margin-right: 10%;
+
+}
+paper-item{
+    font-family: Roboto;
+
+}
+
+
+h3{
+    font-family: Roboto;
+    margin-left: 10%;
+    margin-right: auto;
+    color: #727272;
+}
+
+
+paper-button{
+
+  background: #303F9F;
+  color: #FFFFFF;
+  margin-left: 10%;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  width: 15%;
+ 
+
+
+}
+
+paper-material{
+ 
+ margin-top: 2%;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: 2%;
+ padding-top: 2%;
+ padding-bottom: 3%;
+ width: 50%;
+ vertical-align: middle;
+
+
+}
+
+
+
+
+ </style>
+ <div>
+<template>
+   
+    <div id="cont-form">
+    <form is="iron-form" >
+    
+    <paper-material elevation="5">
+        <h3>Fecha y Hora de la consulta</h3>
+
+    <paper-input label="Fecha de consulta" type="date"></paper-input> 
+        <paper-input label="Hora de consulta" type="Time" class="ultimo" ></paper-input> 
+</paper-material>
+
+<paper-material elevation="5">
+    <h3>Informacion del acudiente</h3>
+        <paper-input label="Nombres" ></paper-input> 
+        <paper-input  label="Apellidos"></paper-input>
+    <paper-input label="Cedula" type="number"></paper-input>
+    <paper-input label="Telefono" type="number" ></paper-input>
+    <paper-input label="Celular" type="number" class="ultimo" ></paper-input>
+    </paper-material> 
+
+<paper-material elevation="5">
+<h3>Informacion del la consulta</h3>
+<paper-textarea label="Problema principal o motivo de la consulta" ></paper-textarea>
+<paper-textarea class="ultimo" label="Enfermedad actual o anamnesis próxima" ></paper-textarea>
+<paper-button raised > <iron-icon icon="send"></iron-icon> </paper-button>
+</paper-material>
+
+    </form>
+</div>
+
+
+
+</template>
+</div>
+</dom-module>
+<script>
+    Polymer({
+        is: 'form-3',
+        properties: {
+        
+        },
+        verificar: function(){
+            console.log(" listo!");
+        },
+        
+    });
+</script>
+
+
+
+

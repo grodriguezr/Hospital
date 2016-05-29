@@ -1,0 +1,52 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 Winston Howes. All rights reserved.
+This code may only be used under the MIT license found at https://github.com/winhowes/parallax-container/blob/master/LICENSE
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../info-card.html">
+  </head>
+  <body>
+
+    <!-- You can use the document as a place to set up your fixtures. -->
+    <info-card image="myPic.png" offset-y="top" width="60"></info-card>
+
+    <script>
+      var myEl = document.querySelector('info-card');
+
+      suite('<info-card>', function() {
+
+        test('defines the "image" property', function() {
+          assert.equal(myEl.image, 'myPic.png');
+        });
+        
+        test('defines the "offsetX" property', function() {
+          assert.equal(myEl.offsetX, 'center');
+        });
+        
+        test('defines the "offsetY" property', function() {
+          assert.equal(myEl.offsetY, 'top');
+        });
+        
+        test('defines the "border" property', function() {
+          assert.equal(myEl.border, 5);
+        });
+        
+        test('defines the "width" property', function() {
+          assert.equal(myEl.width, 60);
+        });
+
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<template>
+		<paper-material elevation="3" id="personal" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="social:group"></iron-icon>
+				</div>
+				<div id="nombre">
+					<p>
+						PERSONAL
+					</p>
+				</div>
+				
+				<div id="etiqueta">
+					<p>
+						Opciones del personal médico
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="medicinas" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="maps:local-hospital"></iron-icon>
+				</div>
+				<div id="nombre">
+					<p>
+						MEDICINAS
+					</p>
+				</div>
+				
+				<div id="etiqueta">
+					<p>
+						Opciones de las medicinas
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="inventario" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="assignment"></iron-icon>
+				</div>
+				<div id="nombre">
+					<p>
+						INVENTARIO
+					</p>
+				</div>
+				
+				<div id="etiqueta">
+					<p>
+						Opciones de inventario
+					</p>
+				</div>
+			</div>
+		</paper-material>
+
+		<paper-material elevation="3" id="pedidos" class="elemento"> 
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="maps:local-shipping"></iron-icon>
+				</div>
+				<div id="nombre">
+					<p>
+						PEDIDOS
+					</p>
+				</div>
+				
+				<div id="etiqueta">
+					<p>
+						Administre los pedidos
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="estadisticas" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="assessment"></iron-icon>
+				</div>
+				<div id="nombre">
+					<p>
+						ESTADÍSTICAS
+					</p>
+				</div>
+				
+				<div id="etiqueta">
+					<p>
+						Estadisticas de uso de medicinas
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="informes" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="subject"></iron-icon>
+				</div>
+				<div id="nombre">
+					<p>
+						INFORMES
+					</p>
+				</div>
+				
+				<div id="etiqueta">
+					<p>
+						Informes detallados de las estadisticas
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		<paper-material elevation="3" id="calendario" class="elemento">
+			<div id="contenedor">
+				<div id="imagen">
+					<iron-icon icon="event"></iron-icon>
+				</div>
+				<div id="nombre">
+					<p>
+						CALENDARIO
+					</p>
+				</div>
+				
+				<div id="etiqueta">
+					<p>
+						Defina fechas a sus actividades
+					</p>
+				</div>
+			</div>
+		</paper-material>
+		
+		<script>
+			personal.addEventListener("mouseover", function(){
+				personal.setAttribute("elevation", "0");
+				console.log("sdasdad");
+			});
+			personal.addEventListener("mouseout", function(){
+				personal.setAttribute("elevation", "3");
+			});
+
+			medicinas.addEventListener("mouseover", function(){
+				medicinas.setAttribute("elevation", "0");
+			});
+			medicinas.addEventListener("mouseout", function(){
+				medicinas.setAttribute("elevation", "3");
+			});
+
+			inventario.addEventListener("mouseover", function(){
+				inventario.setAttribute("elevation", "0");
+			});
+			inventario.addEventListener("mouseout", function(){
+				inventario.setAttribute("elevation", "3");
+			});
+
+			pedidos.addEventListener("mouseover", function(){
+				pedidos.setAttribute("elevation", "0");
+			});
+			pedidos.addEventListener("mouseout", function(){
+				pedidos.setAttribute("elevation", "3");
+			});
+
+			estadisticas.addEventListener("mouseover", function(){
+				estadisticas.setAttribute("elevation", "0");
+			});
+			estadisticas.addEventListener("mouseout", function(){
+				estadisticas.setAttribute("elevation", "3");
+			});
+
+			informes.addEventListener("mouseover", function(){
+				informes.setAttribute("elevation", "0");
+			});
+			informes.addEventListener("mouseout", function(){
+				informes.setAttribute("elevation", "3");
+			});
+
+			calendario.addEventListener("mouseover", function(){
+				calendario.setAttribute("elevation", "0");
+			});
+			calendario.addEventListener("mouseout", function(){
+				calendario.setAttribute("elevation", "3");
+			});
+		</script>
+	</template>

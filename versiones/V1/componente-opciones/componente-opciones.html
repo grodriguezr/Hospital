@@ -1,0 +1,175 @@
+<meta charset="utf-8">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+
+
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../paper-menu/paper-menu.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../componente-herramientas/componente-herramientas.html">
+
+
+
+
+
+<dom-module id="componente-opciones">
+
+	<style is="custom-style">
+			:host{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			display: block;
+			--paper-tabs-selection-bar-color: blue;
+			--paper-tabs: {
+                color: white; /* variable defined in default-theme.html */
+                font-size: 15px;
+                background-color: #0091EA;
+            }
+            --paper-toolbar-height: 45px;	
+
+			}
+			componente-opciones{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background-color: black;
+			}
+			paper-toolbar.main{
+				background-color: var(--paper-blue-500);
+			}
+			paper-toolbar.drawer{
+				background-color: var(--paper-grey-400);
+				color: black;
+				margin-bottom: 1px;
+				width: 250px;
+	     		}
+			paper-card{
+				width: 250px;
+				height: 350px;
+				margin: 8px;
+			}
+			
+
+	</style>
+
+	<template>
+		<paper-drawer-panel id="paperDrawerPanel">
+			<div drawer>
+				<paper-header-panel>
+                    <paper-toolbar class="drawer">
+                    	<paper-icon-button icon="search"></paper-icon-button>
+                    	<span class = "title flex">Buscar</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="clear"></paper-icon-button>
+                    	<span class = "title flex">Descartar</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="settings"></paper-icon-button>
+                    	<span class = "title flex">Configuraciones</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="help"></paper-icon-button>
+                    	<span class = "title flex">Acerca de</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="event"></paper-icon-button>
+                    	<span class = "title flex">Calendario</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="assignment"></paper-icon-button>
+                    	<span class = "title flex">Informes</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="assessment"></paper-icon-button>
+                    	<span class = "title flex">Estadísticas</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="maps:local-shipping"></paper-icon-button>
+                    	<span class = "title flex">Pedidos</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="device:storage"></paper-icon-button>
+                    	<span class = "title flex">Administrar datos</span>
+                	</paper-toolbar>
+                	<paper-toolbar class="drawer">
+                    	<paper-icon-button icon="social:group"></paper-icon-button>
+                    	<span class = "title flex">Administrar usuarios</span>
+                	</paper-toolbar>
+                </paper-header-panel>
+                   
+			</div>
+			<div main>
+				
+				<paper-tabs selected="0" noink>
+				  <paper-tab>CONSULTA EXTERNA</paper-tab>
+				  <paper-tab>URGENCIAS</paper-tab>
+				  <paper-tab>CIRUGÍA</paper-tab>
+				</paper-tabs>
+				<componente-herramientas></componente-herramientas>
+				<!--<paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000">
+					  <div class="card-content">
+					    	Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+					  </div>
+					  <div class="card-actions">
+						    <paper-button>Share</paper-button>
+						    <paper-button>Explore!</paper-button>
+					  </div>
+				</paper-card>
+				<paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000">
+					  <div class="card-content">
+					    	Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+					  </div>
+					  <div class="card-actions">
+						    <paper-button>Share</paper-button>
+						    <paper-button>Explore!</paper-button>
+					  </div>
+				</paper-card>
+				<paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000">
+					  <div class="card-content">
+					    	Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+					  </div>
+					  <div class="card-actions">
+						    <paper-button>Share</paper-button>
+						    <paper-button>Explore!</paper-button>
+					  </div>
+				</paper-card>
+				<paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000">
+					  <div class="card-content">
+					    	Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+					  </div>
+					  <div class="card-actions">
+						    <paper-button>Share</paper-button>
+						    <paper-button>Explore!</paper-button>
+					  </div>
+				</paper-card>	-->		
+
+
+
+			</div>
+		</paper-drawer-panel>
+	</template>
+</dom-module>
+
+<script>
+	Polymer({
+		is: 'componente-opciones',
+		properties: {
+		
+		},
+		ready: function(){
+			this.mostrarConsola("componente-opciones listo!");
+		},
+		mostrarConsola: function(mensaje){
+			console.log(mensaje);
+		}
+	});
+</script>

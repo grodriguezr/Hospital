@@ -1,0 +1,289 @@
+<meta charset="utf-8">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../iron-list/iron-list.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../componente-enfermeros/componente-enfermeros.html">
+<link rel="import" href="../componente-boticarios/componente-boticarios.html">
+<link rel="import" href="../componente-pacientes/componente-pacientes.html">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../componente-consulta-externa/componente-consulta-externa.html">
+<link rel="import" href="../componente-cirugia/componente-cirugia.html">
+<link rel="import" href="../componente-urgencias/componente-urgencias.html">
+
+
+
+<dom-module id="componente-medicamentos">
+	<style is="custom-style">
+		paper-material{
+
+
+		 	/*float: left;*/
+
+		}
+		h2 {
+			/*font-family: 'Roboto','Noto';*/
+			color: #444;
+			
+			font-weight: 300;
+		}  		
+  		#cirugia{
+  			background-color: #009688;
+  		}
+  		#urgencias{
+  			background-color: #009688;
+  		}
+
+  		#consultaExterna{
+  			
+  			background-color: #009688;
+  			
+
+  		}
+  		.nombreArea{
+  			position: absolute;
+  			width: 90%;
+  			height: 30%;
+  			top: 80px;
+  			text-align: right;
+  			/*font-family: 'Roboto','Noto';*/
+  			font-size: 19px;
+  			color: white;
+
+  		}
+  		.boton{
+  			position: absolute;
+  			width: 100%;
+  			height: 25%;
+  			bottom: 0px;
+  			/*font-family: 'Roboto','Noto';*/
+  			font-weight: 300;
+
+  		}
+  		#consultaExterna .boton{
+  			background-color: #00695C;
+  			border-bottom-left-radius: 5px;
+  			border-bottom-right-radius: 5px;
+
+  		}
+
+  		#cirugia .boton{
+  			background-color: #B71C1C;
+  			border-bottom-left-radius: 5px;
+  			border-bottom-right-radius: 5px;
+
+  		}
+
+  		#urgencias .boton{
+  			background-color: #455A64;
+  			border-bottom-left-radius: 5px;
+  			border-bottom-right-radius: 5px;
+
+  		}
+  		.textoBoton{
+			color: white;
+  			text-align: center;
+
+  		}
+  		#verTodos{
+  			width: 45%;
+  			height: 300px;
+  			float: left;
+  		}
+  		#novedades{
+  			width: 44%;
+  			height: 300px;
+  			float: left;
+  		}
+  		.titulo{
+  			/*font-family: 'Roboto','Noto';*/
+  			font-size: 19px;
+
+  		}
+  		.flecha{
+  			position: absolute;
+  			right: 20px;
+  			top: 15px;
+  		}
+  		#dialogVerConsulta{
+  			width: 70%;
+  		}
+  		paper-card{
+
+  			border-radius: 10px;
+  			width: 300px;
+  			height: 135px;
+  			margin-right: 20px;
+  			margin-top: 20px;
+
+  		}
+  		#card-content{
+  			height: 50px;
+  			font-size: 2em;
+  		}
+  		
+  		#consultaExterna .imagen{
+  			width: 28%;
+  			height: 100%;
+  			background: url('../../img/consultaExterna.jpg');
+  			background-size: cover;
+  			background-position: center;
+  			position: absolute;
+  			right: 0px;
+  			border-top-right-radius: 10px;
+  			border-bottom-right-radius: 10px;	
+  		}
+
+  		#cirugia .imagen{
+  			width: 28%;
+  			height: 100%;
+  			background: url('../../img/cirugia.jpg');
+  			background-size: cover;
+  			background-position: center;
+  			position: absolute;
+  			right: 0px;
+  			border-top-right-radius: 10px;
+  			border-bottom-right-radius: 10px;	
+  		}
+
+  		#urgencias .imagen{
+  			width: 28%;
+  			height: 100%;
+  			background: url('../../img/urgencias.jpg');
+  			background-size: cover;
+  			background-position: center;
+  			position: absolute;
+  			right: 0px;
+  			border-top-right-radius: 10px;
+  			border-bottom-right-radius: 10px;	
+  		}
+
+  		.contenido{
+  			width: 80%;
+  			float: left;
+
+  		}
+  		paper-icon-button{
+  			color: white;
+  		}
+  		.card-actions{
+  			width: 80%;
+
+  			text-align: center;
+  		}
+  		#divisorMedicamentos{
+  			
+  			color: #727272;
+  			top: 0px;
+  			width: 100%;
+  		}
+
+  		
+
+
+	</style>
+
+
+	<template>
+		<div id="divisorMedicamentos">
+			<h2>GESTIÓN DE MEDICAMENTOS</h2>
+			<hr></hr>
+		</div>
+		<div id = "cartas">
+			<paper-material class="paperMaterial">
+				<paper-card id = "consultaExterna" onmouseover="cambiaElevacion">
+					<div class = "contenido">			
+						<div class="card-content">
+							<p style="font-size: 18px; color: white;">Consulta externa</p>		
+						</div>
+						<div class="card-actions">
+						    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
+						    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
+						    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
+						</div>
+					</div>
+					<div class = "imagen"></div>
+				</paper-card>
+			</paper-material>
+
+			<paper-material class="paperMaterial">
+				<paper-card id = "cirugia" onmouseover="cambiaElevacion">
+  					<div class = "contenido">			
+						<div class="card-content">
+							<p style="font-size: 18px; color: white;">Cirugía</p>
+						</div>
+						<div class="card-actions">
+						    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
+						    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
+						    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
+
+						</div>
+					</div>
+					<div class = "imagen"></div>
+				</paper-card>
+			</paper-material>
+			<paper-material class="paperMaterial">
+				<paper-card id = "urgencias" onmoseover="cambiaElevacion">
+  					<div class = "contenido">			
+						<div class="card-content">
+							<p style="font-size: 18px; color: white;">Urgencias</p>
+						</div>
+						<div class="card-actions">
+						    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
+						    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
+						    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
+
+						</div>
+					</div>
+					<div class = "imagen"></div>
+				</paper-card>
+			</paper-material>
+		</div>
+	
+			
+			
+			
+		<script>
+			
+		</script>	
+	</template>
+	
+</dom-module>
+
+<script>
+		
+		Polymer({
+			is: 'componente-medicamentos',
+			arreglo: function(){
+			},
+			properties: {			
+	 		},	
+	 		verMasConsultaE: function(event){
+	 			var dialogo = document.querySelector('#dialogVerConsulta');
+            	dialogo.toggle();
+	 		},
+			verMasCirugiaE: function(event){
+	 			var dialogo = document.querySelector('#dialogVerCirugia');
+            	dialogo.toggle();
+	 		},
+	 		verMasUrgenciasE: function(event){
+	 			var dialogo = document.querySelector('#dialogVerUrgencias');
+            	dialogo.toggle();
+	 		},
+	 		cambiaElevacion: function(event){
+	 			document.querySelector('.paperMaterial').elevation = 0;
+	 		}
+			
+		});
+	</script>	
