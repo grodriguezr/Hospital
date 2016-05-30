@@ -39,15 +39,15 @@
 			font-weight: 300;
 		}  		
   		#cirugia{
-  			background-color: #009688;
+  			background-color: #0288D1;
   		}
   		#urgencias{
-  			background-color: #009688;
+  			background-color: #0288D1;
   		}
 
   		#consultaExterna{
   			
-  			background-color: #009688;
+  			background-color: #0288D1;
   			
 
   		}
@@ -201,54 +201,54 @@
 			<hr></hr>
 		</div>
 		<div id = "cartas">
-			<paper-material class="paperMaterial">
-				<paper-card id = "consultaExterna" onmouseover="cambiaElevacion">
+			
+			<paper-card id = "consultaExterna">
+				<div class = "contenido">			
+					<div class="card-content">
+						<p style="font-size: 18px; color: white;">Consulta externa</p>		
+					</div>
+					<div class="card-actions">
+					    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
+					    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
+					    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
+					</div>
+				</div>
+				<div class = "imagen"></div>
+			</paper-card>
+		
+
+		
+			<paper-card id = "cirugia">
 					<div class = "contenido">			
-						<div class="card-content">
-							<p style="font-size: 18px; color: white;">Consulta externa</p>		
-						</div>
-						<div class="card-actions">
-						    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
-						    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
-						    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
-						</div>
+					<div class="card-content">
+						<p style="font-size: 18px; color: white;">Cirugía</p>
 					</div>
-					<div class = "imagen"></div>
-				</paper-card>
-			</paper-material>
+					<div class="card-actions">
+					    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
+					    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
+					    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
 
-			<paper-material class="paperMaterial">
-				<paper-card id = "cirugia" onmouseover="cambiaElevacion">
-  					<div class = "contenido">			
-						<div class="card-content">
-							<p style="font-size: 18px; color: white;">Cirugía</p>
-						</div>
-						<div class="card-actions">
-						    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
-						    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
-						    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
-
-						</div>
 					</div>
-					<div class = "imagen"></div>
-				</paper-card>
-			</paper-material>
-			<paper-material class="paperMaterial">
-				<paper-card id = "urgencias" onmoseover="cambiaElevacion">
-  					<div class = "contenido">			
-						<div class="card-content">
-							<p style="font-size: 18px; color: white;">Urgencias</p>
-						</div>
-						<div class="card-actions">
-						    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
-						    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
-						    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
-
-						</div>
+				</div>
+				<div class = "imagen"></div>
+			</paper-card>
+		
+		
+			<paper-card id = "urgencias">
+					<div class = "contenido">			
+					<div class="card-content">
+						<p style="font-size: 18px; color: white;">Urgencias</p>
 					</div>
-					<div class = "imagen"></div>
-				</paper-card>
-			</paper-material>
+					<div class="card-actions">
+					    <paper-icon-button class="rate-icon" icon="add"></paper-icon-button>
+					    <paper-icon-button class="rate-icon" icon="view-list"></paper-icon-button>
+					    <paper-icon-button class="rate-icon" icon="search"></paper-icon-button>
+
+					</div>
+				</div>
+				<div class = "imagen"></div>
+			</paper-card>
+		
 		</div>
 	
 			
@@ -280,10 +280,8 @@
 	 		verMasUrgenciasE: function(event){
 	 			var dialogo = document.querySelector('#dialogVerUrgencias');
             	dialogo.toggle();
-	 		},
-	 		cambiaElevacion: function(event){
-	 			document.querySelector('.paperMaterial').elevation = 0;
 	 		}
+	 		
 			
 		});
 	</script>	
