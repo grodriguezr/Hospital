@@ -4,6 +4,7 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-input/paper-input.html">
 
 <link rel="import" href="../paper-styles/default-theme.html">
 <link rel="import" href="../paper-styles/paper-styles-classes.html">
@@ -43,7 +44,6 @@
 			:host{
 				
 				overflow: hidden;
-				display: block;
 				--paper-tabs-selection-bar-color: white;
 
 			}
@@ -60,19 +60,26 @@
 				background-color: #3F51B5;
 			}*/
 			.contenedorHerramientas{
+
+				position: absolute;
+				
 				width: 100%;
-				margin-top: 25px;
-				margin-left: 40px;
+				
+
+				/*margin-top: 25px;
+				margin-left: 40px;*/
 			}
 			
 			#drawer{
 				height: 100%;
 				width: 100%;
+				border-right: 1px solid #B6B6B6;
 				/*background-color: black;*/
 			}
 			#main{
 				width: 100%;
 				background-color: white;
+
 			}
 			iron-icon{
 				width: 30px;
@@ -83,14 +90,10 @@
 			}
 			paperDrawerPanel{
 				width: 100%;
+
 			}
 			
-			#areas{
-				position: absolute;
-				width: 93%;
-				height: 40%;
 				
-			}	
 			
 
 			paper-toolbar{
@@ -102,15 +105,15 @@
    			.menuItem {
 
    				/*font-family: 'Roboto','Noto';*/
-				color: #444;
+				color: #212121;
 				font-size: 16px;
 				font-weight:100;
    			}
    			paper-item{
-   				margin-bottom: 15px;
+   				/*margin-bottom: 15px;*/
    			}
    			paper-item:hover{
-   				transition: background-color .5s;
+   				transition: background-color .2s;
    				background: #EEEEEE;
    			}
    			
@@ -130,6 +133,7 @@
 		}
 		.menu-content{
 			background-color: white;
+			border-bottom: 1px;
 		}
 		drawerToolbar{
 			background-color: #009688;
@@ -137,12 +141,26 @@
 		}
 		paper-header-panel {
   			--paper-header-panel-shadow: {
-      		height: 0px;
-      		bottom: 0px;
-      	
+      		height: 1px;
+      		bottom: 1px;
+
+
   		};
+
+
   		
-}
+		}
+		#buscar{
+			color: #0288D1;
+		}
+		#areas{
+			
+		}
+		p{
+			margin-top: 0em;
+			margin-bottom: 0em;
+		}
+
 
             
 			
@@ -150,26 +168,48 @@
 	</style>
 
 	<template>
-		<paper-drawer-panel drawer-width="200px" id="paperDrawerPanel">
+		<paper-drawer-panel drawer-width="300px" id="paperDrawerPanel">
 		    <paper-header-panel drawer  id="drawer">
 		      	<paper-toolbar id="drawerToolbar">
 		      		    <span class="paper-font-title">logo</span>
 		  		</paper-toolbar>
-
+		  		<div id = "buscar">
+    				<paper-input  label="Buscar">
+						<paper-icon-button suffix icon="search" alt="search" title="search"></paper-icon-button>
+    				</paper-input>
+		  		</div>
 		  		<paper-menu class="menu-content">
-					  <paper-item id="paperMenuForthItem"><iron-icon icon="maps:local-hospital" item-icon></iron-icon><div class="menuItem">texto texto</div></paper-item>
-					  <paper-item id="paperMenuForthItem"><iron-icon icon="assignment" item-icon></iron-icon><div class="menuItem">texto texto</div></paper-item>
-					  <paper-item id="paperMenuForthItem"><iron-icon icon="maps:local-shipping" item-icon></iron-icon><div class="menuItem">texto texto</div></paper-item>
-					  <paper-item id="paperMenuSecondItem"><iron-icon icon="assessment" item-icon></iron-icon><div class="menuItem">texto texto</div></paper-item> 
-					  <paper-item id="paperMenuSecondItem"><iron-icon icon="event" item-icon></iron-icon><div class="menuItem">texto texto</div></paper-item>	
-					  <paper-item id="paperMenuSecondItem"><iron-icon icon="settings" item-icon></iron-icon><div class="menuItem">texto texto</div></paper-item>
+					<paper-item id="paperMenuForthItem">
+						<iron-icon icon="maps:local-hospital" item-icon></iron-icon>
+						<div class="menuItem">&nbsp; &nbsp; &nbsp;Medicamentos</div>
+					</paper-item>
+					<paper-item id="paperMenuForthItem">
+						<iron-icon icon="assignment" item-icon></iron-icon>
+						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
+					</paper-item>
+					<paper-item id="paperMenuForthItem">
+						<iron-icon icon="maps:local-shipping" item-icon></iron-icon>
+						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
+					</paper-item>
+					<paper-item id="paperMenuSecondItem">
+						<iron-icon icon="assessment" item-icon></iron-icon>
+						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
+					</paper-item> 
+					<paper-item id="paperMenuSecondItem">
+						<iron-icon icon="event" item-icon></iron-icon>
+						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
+					</paper-item>	
+					<paper-item id="paperMenuSecondItem">
+						<iron-icon icon="settings" item-icon></iron-icon>
+						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
+					</paper-item>
 				</paper-menu>
 		    </paper-header-panel>
 		    <paper-header-panel main id="main">
 
 			    <paper-toolbar id="mainToolbar">
 			    	<paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-			    	<div class="title">Sistema de administración de inventario</div>
+			    	<div class="title"></div>
 			    	<div>
 			    		<paper-dropdown-menu class="custom" id="menuDesplegable" label="Bienvenido" no-label-float>
 							<paper-listbox class="dropdown-content" on-click="resetMenu">
@@ -189,15 +229,15 @@
    					    <paper-tab>URGENCIAS</paper-tab>
 				    </paper-tabs>-->
 			 	</paper-toolbar>
-			 	<div class="contenedorHerramientas">
-			 		<neon-animatable>
-			 			<div id="areas">
-			 				<componente-medicamentos></componente-medicamentos>
-			 			<!</div>
-			 	 		<!--<componente-consulta-externa></componente-consulta-externa>-->
-			 	 	</neon-animatable>
+			 	
+		 		<neon-animatable>
+		 			<div id="areas">
+		 				<componente-medicamentos></componente-medicamentos>
+		 			</div>
+		 	 		<!--<componente-consulta-externa></componente-consulta-externa>-->
+		 	 	</neon-animatable>
 
-			 	</div>
+			 	
 
 			    <!--<iron-pages selected="0">
 				    <div class="contentMargin"><h2><componente-herramientas></componente-herramientas></div>
