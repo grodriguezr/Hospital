@@ -211,14 +211,46 @@
         height: 50px;
         background-color: #0288D1;
         border-radius: 10px;
-        left: 110px;
+        left: 113px;
         top: 15px;
       }
       iron-icon{
         color: white;
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
+        padding: 8px;
       }
+      .nombre{
+        position: relative;
+        top: 30px;
+        text-align: center;
+        font-size: 18px;
+        font-family: Open Sans Regular;
+        font-weight: 300;
+        color: #727272;
+      }
+      .descripcion{
+        position: relative;
+        width: 95%;
+        top: 40px;
+        left: 6px;
+        text-align: center;
+        font-weight: 300;
+        font-size: 12px;
+        font-family: Open Sans Regular;
+        color: #727272;
+      }
+      .enlace{
+        position: relative;
+        top: 56px;
+        text-align: center;
+        font-family: Open Sans Regular;
+        font-size: 12px;
+
+      }
+      a:link{   
+        text-decoration:none;   
+      } 
   		
 
 
@@ -229,7 +261,7 @@
 		<div id="divisorMedicamentos">
 		  <div class = "tituloSeccion">
         <h2>BIENVENIDO A SIARF</h2>
-        <p class = "subtituloSeccion">Administración de medicamentos</p>
+        <p class = "subtituloSeccion">Opciones generales y estadísticas</p>
       </div>
 			
 		</div>
@@ -237,18 +269,21 @@
     <div id = "inventarios">
         <div class = "contenido">
           <div class = "imagen"><iron-icon icon="maps:local-pharmacy"></iron-icon></div> 
-          <div class = "nombre"></div>
-          <div class = "descripcion"></div>
+          <div class = "nombre">ADMINISTRAR MEDICAMENTOS</div>
+          <div class = "descripcion">Añadir, listar, eliminar y recetar medicamentos a los pacientes</div>
+          <div class="enlace"><a href="#">Ver más</a></div>
         </div>
         <div class = "contenido">
-          <div class = "imagen"></div> 
-          <div class = "nombre"></div>
-          <div class = "descripcion"></div>
+          <div class = "imagen"><iron-icon icon="assessment"></iron-icon></div> 
+          <div class = "nombre">MOSTRAR ESTADÍSTICAS</div>
+          <div class = "descripcion">Estadísticas de uso de medicamentos y movimientos de inventario</div>
+          <div class="enlace"><a href="#">Ver más</a></div>
         </div>
         <div class = "contenido">
-          <div class = "imagen"></div> 
-          <div class = "nombre"></div>
-          <div class = "descripcion"></div>
+          <div class = "imagen"><iron-icon icon="assignment"></iron-icon></div> 
+          <div class = "nombre">ADMINISTRAR INVENTARIO</div>
+          <div class = "descripcion">Transferir medicamentos, edición de inventario y ajustes de stock</div>
+          <div class="enlace"><a href="#">Ver más</a></div>
         </div>
     </div>
 	
