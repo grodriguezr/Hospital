@@ -19,6 +19,8 @@
 <link rel="import" href="../componente-consulta-externa/componente-consulta-externa.html">
 <link rel="import" href="../componente-cirugia/componente-cirugia.html">
 <link rel="import" href="../componente-urgencias/componente-urgencias.html">
+<link rel="import" href="../google-apis/google-apis.html">
+<link rel="import" href="../google-chart/google-chart.html">
 
 
 
@@ -88,11 +90,7 @@
   			height: 300px;
   			float: left;
   		}
-  		.titulo{
-  			/*font-family: 'Roboto','Noto';
-  			font-size: 19px;
-
-  		}
+  		
   		.flecha{
   			position: absolute;
   			right: 20px;
@@ -165,8 +163,7 @@
   			/*text-align: center;
   		}*/
   		#divisorMedicamentos{
-
-  			height: 100px;
+        height: 100px;
   			color: #212121;
   			
   			width: 100%;
@@ -185,7 +182,11 @@
       @font-face {
         font-family: Open Sans Regular;
         src: url("../../fonts/Open_Sans/OpenSans-Regular.ttf");
-    }
+      }
+      @font-face {
+        font-family: Open Sans Regular Light;
+        src: url("../../fonts/Open_Sans/OpenSans-Light.ttf");
+      }
       h2 {
         margin-top: 0em;
         margin-bottom: 0em;
@@ -251,7 +252,55 @@
       a:link{   
         text-decoration:none;   
       } 
-  		
+      #inventarios{
+      }
+      #estadisticasSemanales{
+        margin-top: 40px;
+        width: 100%;
+        height: 500px;
+        background-color: #F5F5F5;
+        border-top: 1px solid #E0E0E0;
+        float: left;
+         
+
+      }
+      /*google-chart {
+        height: 300px;
+        width: 50em;
+      }*/
+  		#miCanvas{
+        position: relative;
+      }
+      #diagramaMensual{
+        margin-left: 40px;
+        margin-top: 30px;
+        width: 588px;
+        height: 351px;
+        border: 1px solid #E0E0E0;
+      }
+      google-chart{
+        width: 100%;
+        background-color: white;
+      }
+      .cabecera{
+        background-color: white;
+        width: 100%;
+        height: 50px;
+        font-family: Open Sans Regular Light;
+        font-size: 25px;
+        border-bottom: 1px solid #E0E0E0;
+        font-weight: 300;
+        color: #727272;
+
+      }
+      .titulo{
+        width: 50%;
+        background-color: white;
+        position: relative;
+        top: 10px;
+        left: 10px;
+        
+      }
 
 
 	</style>
@@ -286,6 +335,31 @@
           <div class="enlace"><a href="#">Ver más</a></div>
         </div>
     </div>
+    <div id="estadisticasSemanales">
+      <div id="diagramaMensual">
+        <div class = "cabecera">
+          <div class="titulo">Inventario</div>
+        </div>
+        <google-chart
+          type='column'
+          options='{}'
+          data = '[["Mes", "Consulta externa", "Urgencias", "Cirugía"],
+                      ["Febrero", 1000, 400, 700],
+                      ["Marzo", 1170, 460, 100],
+                      ["Abril", 660, 1120, 450],
+                      ["Mayo", 1030, 540, 540]]'
+          >
+        </google-chart>
+      </div>
+      
+      <!--<canvas id="miCanvas" width="256" height="256">
+      ,
+          "colors": "[#1b9e77, #d95f02, #7570b3]"}
+      
+    </canvas>-->
+        
+    </div>
+
 	
 			
 			
@@ -303,6 +377,32 @@
 			is: 'componente-medicamentos',
 			arreglo: function(){
 			},
+      /*cargaChart: function(){
+            var ctx = this.$.miCanvas.getContext("2d")
+           
+            var data = [
+              {
+                value: 270,
+                color: "cornflowerblue",
+                highlight: "lightskyblue",
+                label: "Corn Flower Blue"
+              },
+              {
+                value: 50,
+                color: "lightgreen",
+                highlight: "yellowgreen",
+                label: "Lightgreen"
+              },
+              {
+                value: 40,
+                color: "orange",
+                highlight: "darkorange",
+                label: "Orange"
+              }
+            ];
+            var piechart = new Chart(ctx).Pie(data);
+          
+      },*/
 			properties: {			
 	 		},	
 	 		verMasConsultaE: function(event){

@@ -18,6 +18,8 @@
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-drawer-panel/paper-drawer-panel.html">
 <link rel="import" href="../paper-menu/paper-menu.html">
+<link rel="import" href="../paper-menu/paper-submenu.html">
+
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-tabs/paper-tabs.html">
@@ -29,7 +31,7 @@
 <link rel="import" href="../componente-urgencias/componente-urgencias.html">
 <link rel="import" href="../componente-cirugia/componente-cirugia.html">
 
-<link rel="stylesheet" href="../../js/materialize.min.js">
+<!--<link rel="stylesheet" href="../../js/materialize.min.js">-->
 
 
 
@@ -82,8 +84,8 @@
 
 			}
 			iron-icon{
-				width: 30px;
-				height: 30px;
+				width: 20px;
+				height: 20px;
 				color: #0288D1;
 
 
@@ -152,6 +154,7 @@
 		}
 		#buscar{
 			color: #0288D1;
+
 		}
 		#areas{
 			
@@ -160,9 +163,18 @@
 			margin-top: 0em;
 			margin-bottom: 0em;
 		}
+		.flecha{
+			position: absolute;
+			right:0px;
+			top:10px;
+		}
+		#campoTexto{
+			width: 85%;
+			margin: auto;
+		}
 
 
-            
+
 			
 
 	</style>
@@ -174,35 +186,63 @@
 		      		    <span class="paper-font-title">logo</span>
 		  		</paper-toolbar>
 		  		<div id = "buscar">
-    				<paper-input  label="Buscar">
-						<paper-icon-button suffix icon="search" alt="search" title="search"></paper-icon-button>
-    				</paper-input>
+		  			<div id="campoTexto">
+	    				<paper-input id="entrada" label="Buscar..." no-label-float>
+							<paper-icon-button suffix icon="search" alt="search" title="search"></paper-icon-button>
+	    				</paper-input>
+    				</div>
 		  		</div>
 		  		<paper-menu class="menu-content">
 					<paper-item id="paperMenuForthItem">
 						<iron-icon icon="home" item-icon></iron-icon>
 						<div class="menuItem">&nbsp; &nbsp; &nbsp;Inicio</div>
 					</paper-item>
-					<paper-item id="paperMenuForthItem">
-						<iron-icon icon="assignment" item-icon></iron-icon>
-						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
-					</paper-item>
-					<paper-item id="paperMenuForthItem">
-						<iron-icon icon="maps:local-shipping" item-icon></iron-icon>
-						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
-					</paper-item>
-					<paper-item id="paperMenuSecondItem">
-						<iron-icon icon="assessment" item-icon></iron-icon>
-						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
-					</paper-item> 
+					<paper-submenu>
+						<paper-item id="paperMenuForthItem" class="menu-trigger">
+							<iron-icon icon="assignment" item-icon></iron-icon>
+							<div class="menuItem">&nbsp; &nbsp; &nbsp;Informes</div>
+							<div class = "flecha">
+								<iron-icon icon="chevron-right"></iron-icon>
+							</div>
+						</paper-item>
+						<paper-menu class="menu-content">
+							<paper-item>Opcion 1</paper-item>
+							<paper-item>Opcion 2</paper-item>
+							<paper-item>Opcion 3</paper-item>
+						</paper-menu>
+					</paper-submenu>
+					<paper-submenu>
+						<paper-item id="paperMenuForthItem" class="menu-trigger">
+							<iron-icon icon="maps:local-shipping" item-icon></iron-icon>
+							<div class="menuItem">&nbsp; &nbsp; &nbsp;Pedidos</div>
+							<div class = "flecha">
+								<iron-icon icon="chevron-right"></iron-icon>
+							</div>
+						</paper-item>
+						<paper-menu class="menu-content">
+							<paper-item>Opcion 1</paper-item>
+							<paper-item>Opcion 2</paper-item>
+							<paper-item>Opcion 3</paper-item>
+						</paper-menu>
+					</paper-submenu>
 					<paper-item id="paperMenuSecondItem">
 						<iron-icon icon="event" item-icon></iron-icon>
-						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
+						<div class="menuItem">&nbsp; &nbsp; &nbsp;Calendario</div>
 					</paper-item>	
-					<paper-item id="paperMenuSecondItem">
-						<iron-icon icon="settings" item-icon></iron-icon>
-						<div class="menuItem">&nbsp; &nbsp; &nbsp;texto texto</div>
-					</paper-item>
+					<paper-submenu>
+						<paper-item id="paperMenuSecondItem" class="menu-trigger">
+							<iron-icon icon="settings" item-icon></iron-icon>
+							<div class="menuItem">&nbsp; &nbsp; &nbsp;Configuración</div>
+							<div class = "flecha">
+								<iron-icon icon="chevron-right"></iron-icon>
+							</div>
+						</paper-item>
+						<paper-menu class="menu-content">
+							<paper-item>Opcion 1</paper-item>
+							<paper-item>Opcion 2</paper-item>
+							<paper-item>Opcion 3</paper-item>
+						</paper-menu>
+					</paper-submenu>
 				</paper-menu>
 		    </paper-header-panel>
 		    <paper-header-panel main id="main">
@@ -234,7 +274,6 @@
 		 			<div id="areas">
 		 				<componente-medicamentos></componente-medicamentos>
 		 			</div>
-		 	 		<!--<componente-consulta-externa></componente-consulta-externa>-->
 		 	 	</neon-animatable>
 
 			 	
