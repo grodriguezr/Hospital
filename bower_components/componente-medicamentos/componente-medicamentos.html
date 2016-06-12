@@ -32,138 +32,9 @@
 		 	/*float: left;*/
 
 		}
-		  		
-  		/*#cirugia{
-  			background-color: #0288D1;
-  		}
-  		#urgencias{
-  			background-color: #0288D1;
-  		}
-
-  		#consultaExterna{
-  			
-  			background-color: #0288D1;
-  			
-
-  		}
-  	
-  		.boton{
-  			position: absolute;
-  			width: 100%;
-  			height: 25%;
-  			/*font-family: 'Roboto','Noto';
-  			font-weight: 300;
-
-  		}
-  		#consultaExterna .boton{
-  			background-color: #00695C;
-  			border-bottom-left-radius: 5px;
-  			border-bottom-right-radius: 5px;
-
-  		}
-
-  		#cirugia .boton{
-  			background-color: #B71C1C;
-  			border-bottom-left-radius: 5px;
-  			border-bottom-right-radius: 5px;
-
-  		}
-
-  		#urgencias .boton{
-  			background-color: #455A64;
-  			border-bottom-left-radius: 5px;
-  			border-bottom-right-radius: 5px;
-
-  		}
-  		.textoBoton{
-			color: white;
-  			text-align: center;
-
-  		}
-  		#verTodos{
-  			width: 45%;
-  			height: 300px;
-  			float: left;
-  		}
-  		#novedades{
-  			width: 44%;
-  			height: 300px;
-  			float: left;
-  		}
-  		
-  		.flecha{
-  			position: absolute;
-  			right: 20px;
-  			top: 15px;
-  		}
-  		#dialogVerConsulta{
-  			width: 70%;
-  		}
-  		paper-card{
-
-  			border-radius: 10px;
-  			width: 300px;
-  			height: 135px;
-  			margin-right: 20px;
-  			/*margin-top: 20px;
-
-  		}
-  		#card-content{
-  			height: 50px;
-  			font-size: 2em;
-  		}
-  		
-  		#consultaExterna .imagen{
-  			width: 28%;
-  			height: 100%;
-  			background: url('../../img/consultaExterna.jpg');
-  			background-size: cover;
-  			background-position: center;
-  			position: absolute;
-  			right: 0px;
-  			border-top-right-radius: 10px;
-  			border-bottom-right-radius: 10px;	
-  		}
-
-  		#cirugia .imagen{
-  			width: 28%;
-  			height: 100%;
-  			background: url('../../img/cirugia.jpg');
-  			background-size: cover;
-  			background-position: center;
-  			position: absolute;
-  			right: 0px;
-  			border-top-right-radius: 10px;
-  			border-bottom-right-radius: 10px;	
-  		}
-
-  		#urgencias .imagen{
-  			width: 28%;
-  			height: 100%;
-  			background: url('../../img/urgencias.jpg');
-  			background-size: cover;
-  			background-position: center;
-  			position: absolute;
-  			right: 0px;
-  			border-top-right-radius: 10px;
-  			border-bottom-right-radius: 10px;	
-  		}
-
-  		.contenido{
-  			width: 80%;
-  			/*float: left;
-
-  		}
-  		paper-icon-button{
-  			color: white;
-  		}
-  		.card-actions{
-  			width: 80%;
-
-  			/*text-align: center;
-  		}*/
+		  	
   		#divisorMedicamentos{
-        height: 100px;
+        height: 80px;
   			color: #212121;
   			
   			width: 100%;
@@ -193,13 +64,17 @@
         font-family: Roboto Slab;
         color: #212121;
       }
+      p{
+        margin-top: 0.5em;
+        margin-bottom: 0em; 
+      }
       .subtituloSeccion{
         color: #727272;
         font-family: Open Sans Regular;
 
       }
       .contenido{
-        width: 274px;
+        width: 290px;
         height: 190px;
         border: 1px solid #E0E0E0;
         margin-left: 40px;
@@ -212,8 +87,8 @@
         height: 50px;
         background-color: #0288D1;
         border-radius: 10px;
-        left: 113px;
-        top: 15px;
+        display: table;
+        margin: 15px auto -15px;
       }
       iron-icon{
         color: white;
@@ -254,10 +129,10 @@
       } 
       #inventarios{
       }
-      #estadisticasSemanales{
+      #estadisticasGenerales{
         margin-top: 40px;
         width: 100%;
-        height: 500px;
+        
         background-color: #F5F5F5;
         border-top: 1px solid #E0E0E0;
         float: left;
@@ -274,9 +149,11 @@
       #diagramaMensual{
         margin-left: 40px;
         margin-top: 30px;
-        width: 588px;
+        width: 620px;
         height: 351px;
         border: 1px solid #E0E0E0;
+        float: left;
+        
       }
       google-chart{
         width: 100%;
@@ -287,7 +164,7 @@
         width: 100%;
         height: 50px;
         font-family: Open Sans Regular Light;
-        font-size: 25px;
+        font-size: 20px;
         border-bottom: 1px solid #E0E0E0;
         font-weight: 300;
         color: #727272;
@@ -300,6 +177,22 @@
         top: 10px;
         left: 10px;
         
+      }
+      #diagramaMasRecetados{
+        width: 290px;
+        height: 351px;
+        border: 1px solid #E0E0E0;
+        margin-left: 40px;
+        margin-top: 30px;
+        float: left;
+      }
+      #inventarioAnual{
+        width: 950px;
+        height: 351px;
+        border: 1px solid #E0E0E0;
+        margin-left: 40px;
+        margin-top: 30px;
+        float: left;
       }
 
 
@@ -335,7 +228,7 @@
           <div class="enlace"><a href="#">Ver más</a></div>
         </div>
     </div>
-    <div id="estadisticasSemanales">
+    <div id="estadisticasGenerales">
       <div id="diagramaMensual">
         <div class = "cabecera">
           <div class="titulo">Inventario</div>
@@ -351,10 +244,69 @@
           >
         </google-chart>
       </div>
+      <div id = "diagramaMasRecetados">
+        <div class = "cabecera">
+          <div class="titulo">Más recetados</div>
+        </div>
+        
+        <google-chart
+          type='pie'
+          options='{}'
+          cols = '[{"label": "Month", "type": "string"},
+                   {"label": "Days", "type": "number"}]'
+          rows = '[["Jan", 31],
+                   ["Feb", 28],
+                   ["Mar", 31],
+                   ["Apr", 30],
+                   ["May", 31],
+                   ["Jun", 30]]'
+          >
+        </google-chart>
+      </div>
+      <div id = "inventarioAnual">
+        <div class = "cabecera">
+          <div class="titulo">Anual</div>
+        </div>
+        
+        <google-chart
+          type='line'
+          options='{}'
+          data = '[["Mes", "Consulta externa", "Urgencias", "Cirugía"],
+                      ["Ene", 920, 1000, 600],
+                      ["Feb", 1000, 400, 700],
+                      ["Mar", 1170, 460, 100],
+                      ["Abr", 660, 1120, 450],
+                      ["May", 1030, 540, 540],
+                      ["Jun", 1000, 1200, 300],
+                      ["Jul", 300, 250, 900],
+                      ["Ago", 120, 500, 200],
+                      ["Sep", 190, 1100, 400],
+                      ["Oct", 1030, 540, 540],
+                      ["Nov", 660, 1120, 450],
+                      ["Dic", 1030, 540, 540]]'
+
+          >
+        </google-chart>
+      </div>
       
       <!--<canvas id="miCanvas" width="256" height="256">
       ,
           "colors": "[#1b9e77, #d95f02, #7570b3]"}
+
+         cols = '[{"label": "Month", "type": "string"},
+                   {"label": "Days", "type": "number"}]'
+          rows = '[["Jan", 31],
+                   ["Feb", 25],
+                   ["Mar", 10],
+                   ["Apr", 30],
+                   ["May", 7],
+                   ["Jun", 5],
+                   ["Jul", 12],
+                   ["Aug", 23],
+                   ["Sep", 16],
+                   ["Oct", 28],
+                   ["Nov", 27],
+                   ["Dec", 31]]'
       
     </canvas>-->
         

@@ -30,6 +30,8 @@
 <link rel="import" href="../componente-medicamentos/componente-medicamentos.html">
 <link rel="import" href="../componente-urgencias/componente-urgencias.html">
 <link rel="import" href="../componente-cirugia/componente-cirugia.html">
+<link rel="import" href="../componente-admin-medicamento/componente-admin-medicamento.html">
+
 
 <!--<link rel="stylesheet" href="../../js/materialize.min.js">-->
 
@@ -180,7 +182,7 @@
 	</style>
 
 	<template>
-		<paper-drawer-panel drawer-width="300px" id="paperDrawerPanel">
+		<paper-drawer-panel drawer-width="250px" id="paperDrawerPanel">
 		    <paper-header-panel drawer  id="drawer">
 		      	<paper-toolbar id="drawerToolbar">
 		      		    <span class="paper-font-title">logo</span>
@@ -272,7 +274,14 @@
 			 	
 		 		<neon-animatable>
 		 			<div id="areas">
-		 				<componente-medicamentos></componente-medicamentos>
+			 			<iron-pages selected="0">
+			 				<div>
+			 					<componente-medicamentos></componente-medicamentos>
+			 				</div>
+			 				<div>
+			 					<componente-admin-medicamento></componente-admin-medicamento>
+			 				</div>
+			 			</iron-pages>
 		 			</div>
 		 	 	</neon-animatable>
 
