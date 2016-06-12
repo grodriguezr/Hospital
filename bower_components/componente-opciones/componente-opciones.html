@@ -30,7 +30,7 @@
 <link rel="import" href="../componente-medicamentos/componente-medicamentos.html">
 <link rel="import" href="../componente-urgencias/componente-urgencias.html">
 <link rel="import" href="../componente-cirugia/componente-cirugia.html">
-<link rel="import" href="../componente-admin-medicamento/componente-admin-medicamento.html">
+<link rel="import" href="../componente-admin-medicamentos/componente-admin-medicamentos.html">
 
 
 <!--<link rel="stylesheet" href="../../js/materialize.min.js">-->
@@ -197,7 +197,7 @@
 		  		<paper-menu class="menu-content">
 					<paper-item id="paperMenuForthItem">
 						<iron-icon icon="home" item-icon></iron-icon>
-						<div class="menuItem">&nbsp; &nbsp; &nbsp;Inicio</div>
+						<div class="menuItem" on-click="seleccionaInicio">&nbsp; &nbsp; &nbsp;Inicio</div>
 					</paper-item>
 					<paper-submenu>
 						<paper-item id="paperMenuForthItem" class="menu-trigger">
@@ -274,13 +274,11 @@
 			 	
 		 		<neon-animatable>
 		 			<div id="areas">
-			 			<iron-pages selected="0">
+			 			<iron-pages id="menuLateral" selected="0">
 			 				<div>
-			 					<componente-medicamentos></componente-medicamentos>
+			 					<componente-medicamentos id="compMedicamentos"></componente-medicamentos>
 			 				</div>
-			 				<div>
-			 					<componente-admin-medicamento></componente-admin-medicamento>
-			 				</div>
+			 				
 			 			</iron-pages>
 		 			</div>
 		 	 	</neon-animatable>
@@ -348,6 +346,12 @@
 		resetMenu: function(event){
 				document.querySelector('#menuDesplegable')._onIronDeselect();
 
+		},
+		seleccionaInicio: function(event){
+
+			var pages = document.querySelector('#menuLateral');
+        	pages.select(0);
+        	this.$.compMedicamentos.seleccionaPagina(0);
 		}
 
 		

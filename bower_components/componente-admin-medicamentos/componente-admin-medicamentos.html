@@ -11,11 +11,22 @@
 
 <dom-module id="componente-admin-medicamentos">
 	<style is="custom-style">
+		@font-face {
+	        font-family: Roboto Slab;
+	        src: url("../../fonts/Roboto_Slab/RobotoSlab-Thin.ttf");
+      	}
+      	@font-face {
+	        font-family: Open Sans Regular;
+	        src: url("../../fonts/Open_Sans/OpenSans-Regular.ttf");
+      	}
+      	@font-face {
+	        font-family: Open Sans Regular Light;
+	        src: url("../../fonts/Open_Sans/OpenSans-Light.ttf");
+      	}
 		#divisorMedicamentos{
 	        height: 80px;
-	  			color: #212121;
-	  			
-	  			width: 100%;
+	  		color: #212121;
+	  		width: 100%;
 	        background-color: #F5F5F5;
 	        border-bottom: 1px solid #E0E0E0; 
   		}
@@ -28,12 +39,23 @@
 	        color: #727272;
 	        font-family: Open Sans Regular;
       }
+      h2 {
+        margin-top: 0em;
+        margin-bottom: 0em;
+        font-family: Roboto Slab;
+        color: #212121;
+      }
+      p{
+        margin-top: 0.5em;
+        margin-bottom: 0em; 
+      }
 	</style>
 	<template>
 		<div id="divisorMedicamentos">
 			<div class = "tituloSeccion">
         		<h2>ADMINISTRACIÓN DE MEDICAMENTOS</h2>
         		<p class = "subtituloSeccion">Opciones generales y estadísticas</p>
+
       		</div>
 		</div>
 		

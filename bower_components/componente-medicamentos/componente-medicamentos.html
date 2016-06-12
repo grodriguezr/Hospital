@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<link rel="import" href="../iron-pages/iron-pages.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-card/paper-card.html">
@@ -21,6 +22,7 @@
 <link rel="import" href="../componente-urgencias/componente-urgencias.html">
 <link rel="import" href="../google-apis/google-apis.html">
 <link rel="import" href="../google-chart/google-chart.html">
+<link rel="import" href="../componente-admin-medicamentos/componente-admin-medicamentos.html">
 
 
 
@@ -200,125 +202,102 @@
 
 
 	<template>
-		<div id="divisorMedicamentos">
-		  <div class = "tituloSeccion">
-        <h2>BIENVENIDO A SIARF</h2>
-        <p class = "subtituloSeccion">Opciones generales y estadísticas</p>
-      </div>
-			
-		</div>
-		
-    <div id = "inventarios">
-        <div class = "contenido">
-          <div class = "imagen"><iron-icon icon="maps:local-pharmacy"></iron-icon></div> 
-          <div class = "nombre">ADMINISTRAR MEDICAMENTOS</div>
-          <div class = "descripcion">Añadir, listar, eliminar y recetar medicamentos a los pacientes</div>
-          <div class="enlace"><a href="#">Ver más</a></div>
+    <iron-pages id="paginas" selected="1">
+      <div>
+    		<div id="divisorMedicamentos">
+    		  <div class = "tituloSeccion">
+            <h2>BIENVENIDO A SIARF</h2>
+            <p class = "subtituloSeccion">Opciones generales y estadísticas</p>
+          </div>
+    			
+    		</div>
+    		
+        <div id = "inventarios">
+            <div class = "contenido">
+              <div class = "imagen"><iron-icon icon="maps:local-pharmacy"></iron-icon></div> 
+              <div class = "nombre">ADMINISTRAR MEDICAMENTOS</div>
+              <div class = "descripcion">Añadir, listar, eliminar y recetar medicamentos a los pacientes</div>
+              <div class="enlace"><a href="#" on-tap="enviaPagina">Ver más</a></div>
+            </div>
+            <div class = "contenido">
+              <div class = "imagen"><iron-icon icon="assessment"></iron-icon></div> 
+              <div class = "nombre">MOSTRAR ESTADÍSTICAS</div>
+              <div class = "descripcion">Estadísticas de uso de medicamentos y movimientos de inventario</div>
+              <div class="enlace"><a href="#">Ver más</a></div>
+            </div>
+            <div class = "contenido">
+              <div class = "imagen"><iron-icon icon="assignment"></iron-icon></div> 
+              <div class = "nombre">ADMINISTRAR INVENTARIO</div>
+              <div class = "descripcion">Transferir medicamentos, edición de inventario y ajustes de stock</div>
+              <div class="enlace"><a href="#">Ver más</a></div>
+            </div>
         </div>
-        <div class = "contenido">
-          <div class = "imagen"><iron-icon icon="assessment"></iron-icon></div> 
-          <div class = "nombre">MOSTRAR ESTADÍSTICAS</div>
-          <div class = "descripcion">Estadísticas de uso de medicamentos y movimientos de inventario</div>
-          <div class="enlace"><a href="#">Ver más</a></div>
-        </div>
-        <div class = "contenido">
-          <div class = "imagen"><iron-icon icon="assignment"></iron-icon></div> 
-          <div class = "nombre">ADMINISTRAR INVENTARIO</div>
-          <div class = "descripcion">Transferir medicamentos, edición de inventario y ajustes de stock</div>
-          <div class="enlace"><a href="#">Ver más</a></div>
-        </div>
-    </div>
-    <div id="estadisticasGenerales">
-      <div id="diagramaMensual">
-        <div class = "cabecera">
-          <div class="titulo">Inventario</div>
-        </div>
-        <google-chart
-          type='column'
-          options='{}'
-          data = '[["Mes", "Consulta externa", "Urgencias", "Cirugía"],
-                      ["Febrero", 1000, 400, 700],
-                      ["Marzo", 1170, 460, 100],
-                      ["Abril", 660, 1120, 450],
-                      ["Mayo", 1030, 540, 540]]'
-          >
-        </google-chart>
-      </div>
-      <div id = "diagramaMasRecetados">
-        <div class = "cabecera">
-          <div class="titulo">Más recetados</div>
-        </div>
-        
-        <google-chart
-          type='pie'
-          options='{}'
-          cols = '[{"label": "Month", "type": "string"},
-                   {"label": "Days", "type": "number"}]'
-          rows = '[["Jan", 31],
-                   ["Feb", 28],
-                   ["Mar", 31],
-                   ["Apr", 30],
-                   ["May", 31],
-                   ["Jun", 30]]'
-          >
-        </google-chart>
-      </div>
-      <div id = "inventarioAnual">
-        <div class = "cabecera">
-          <div class="titulo">Anual</div>
-        </div>
-        
-        <google-chart
-          type='line'
-          options='{}'
-          data = '[["Mes", "Consulta externa", "Urgencias", "Cirugía"],
-                      ["Ene", 920, 1000, 600],
-                      ["Feb", 1000, 400, 700],
-                      ["Mar", 1170, 460, 100],
-                      ["Abr", 660, 1120, 450],
-                      ["May", 1030, 540, 540],
-                      ["Jun", 1000, 1200, 300],
-                      ["Jul", 300, 250, 900],
-                      ["Ago", 120, 500, 200],
-                      ["Sep", 190, 1100, 400],
-                      ["Oct", 1030, 540, 540],
-                      ["Nov", 660, 1120, 450],
-                      ["Dic", 1030, 540, 540]]'
+        <div id="estadisticasGenerales">
+          <div id="diagramaMensual">
+            <div class = "cabecera">
+              <div class="titulo">Inventario</div>
+            </div>
+            <google-chart
+              type='column'
+              options='{}'
+              data = '[["Mes", "Consulta externa", "Urgencias", "Cirugía"],
+                          ["Febrero", 1000, 400, 700],
+                          ["Marzo", 1170, 460, 100],
+                          ["Abril", 660, 1120, 450],
+                          ["Mayo", 1030, 540, 540]]'
+              >
+            </google-chart>
+          </div>
+          <div id = "diagramaMasRecetados">
+            <div class = "cabecera">
+              <div class="titulo">Más recetados</div>
+            </div>
+            
+            <google-chart
+              type='pie'
+              options='{}'
+              cols = '[{"label": "Month", "type": "string"},
+                       {"label": "Days", "type": "number"}]'
+              rows = '[["Jan", 31],
+                       ["Feb", 28],
+                       ["Mar", 31],
+                       ["Apr", 30],
+                       ["May", 31],
+                       ["Jun", 30]]'
+              >
+            </google-chart>
+          </div>
+          <div id = "inventarioAnual">
+            <div class = "cabecera">
+              <div class="titulo">Anual</div>
+            </div>
+            
+            <google-chart
+              type='line'
+              options='{}'
+              data = '[["Mes", "Consulta externa", "Urgencias", "Cirugía"],
+                          ["Ene", 920, 1000, 600],
+                          ["Feb", 1000, 400, 700],
+                          ["Mar", 1170, 460, 100],
+                          ["Abr", 660, 1120, 450],
+                          ["May", 1030, 540, 540],
+                          ["Jun", 1000, 1200, 300],
+                          ["Jul", 300, 250, 900],
+                          ["Ago", 120, 500, 200],
+                          ["Sep", 190, 1100, 400],
+                          ["Oct", 1030, 540, 540],
+                          ["Nov", 660, 1120, 450],
+                          ["Dic", 1030, 540, 540]]'
 
-          >
-        </google-chart>
+              >
+            </google-chart>
+          </div>   
+        </div>
       </div>
-      
-      <!--<canvas id="miCanvas" width="256" height="256">
-      ,
-          "colors": "[#1b9e77, #d95f02, #7570b3]"}
-
-         cols = '[{"label": "Month", "type": "string"},
-                   {"label": "Days", "type": "number"}]'
-          rows = '[["Jan", 31],
-                   ["Feb", 25],
-                   ["Mar", 10],
-                   ["Apr", 30],
-                   ["May", 7],
-                   ["Jun", 5],
-                   ["Jul", 12],
-                   ["Aug", 23],
-                   ["Sep", 16],
-                   ["Oct", 28],
-                   ["Nov", 27],
-                   ["Dec", 31]]'
-      
-    </canvas>-->
-        
-    </div>
-
-	
-			
-			
-			
-		<script>
-			
-		</script>	
+      <div>
+        <componente-admin-medicamentos></componente-admin-medicamentos>
+      </div>
+    </iron-pages>
 	</template>
 	
 </dom-module>
@@ -329,32 +308,15 @@
 			is: 'componente-medicamentos',
 			arreglo: function(){
 			},
-      /*cargaChart: function(){
-            var ctx = this.$.miCanvas.getContext("2d")
-           
-            var data = [
-              {
-                value: 270,
-                color: "cornflowerblue",
-                highlight: "lightskyblue",
-                label: "Corn Flower Blue"
-              },
-              {
-                value: 50,
-                color: "lightgreen",
-                highlight: "yellowgreen",
-                label: "Lightgreen"
-              },
-              {
-                value: 40,
-                color: "orange",
-                highlight: "darkorange",
-                label: "Orange"
-              }
-            ];
-            var piechart = new Chart(ctx).Pie(data);
-          
-      },*/
+      enviaPagina: function(event){
+        var pages = document.querySelector('#paginas');
+        pages.select(1);
+      },
+      seleccionaPagina: function(numero){
+        var pages = document.querySelector('#paginas');
+        pages.select(numero);
+      },
+      
 			properties: {			
 	 		},	
 	 		verMasConsultaE: function(event){
