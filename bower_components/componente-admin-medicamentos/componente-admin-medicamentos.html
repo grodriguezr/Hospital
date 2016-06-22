@@ -4,6 +4,10 @@
 <link rel="import" href="../iron-icons/social-icons.html">
 <link rel="import" href="../iron-icons/device-icons.html">
 <link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
 
 
 
@@ -11,6 +15,9 @@
 
 <dom-module id="componente-admin-medicamentos">
 	<style is="custom-style">
+		paper-tabs{
+			--paper-tabs-selection-bar-color:blue;
+		}
 		@font-face {
 	        font-family: Roboto Slab;
 	        src: url("../../fonts/Roboto_Slab/RobotoSlab-Thin.ttf");
@@ -34,29 +41,271 @@
 	        position: absolute;
 	        top: 10px;
 	        left: 30px;
-      	}
+     	}
       	.subtituloSeccion{
 	        color: #727272;
 	        font-family: Open Sans Regular;
-      }
-      h2 {
-        margin-top: 0em;
-        margin-bottom: 0em;
-        font-family: Roboto Slab;
-        color: #212121;
-      }
-      p{
-        margin-top: 0.5em;
-        margin-bottom: 0em; 
-      }
+      	}
+    	h2 {
+	        margin-top: 0em;
+	        margin-bottom: 0em;
+	        font-family: Roboto Slab;
+      	}
+      	.numero h2{
+      		font-family: 'Roboto';
+      	}
+      	p{
+	        margin-top: 0.5em;
+	        margin-bottom: 0em; 
+      	}
+      	.cajaInformacion{
+	      	margin-top: 30px;
+	      	margin-left: 25px;
+	      	width: 230px;
+	      	height: 100px;
+	      	float: left;
+      	}
+      	#nuevos{
+      		background-color: #0288D1;
+      	}
+      	.icono{
+	      	position: relative;
+	      	top: 10px;
+	      	width: 80px;
+	      	height: 80px;
+      	}
+      	.icono iron-icon{
+	      	width: 80px;
+	      	height: 80px;
+	      	color: #FFFFFF;
+      	}
+      	.numero{
+	      	position: relative;
+	      	top: -65px;
+	      	left: 75px;
+	      	font-size: 30px;
+	      	color: #FFFFFF;
+      	
+      	}
+      	.etiqueta{
+	      	position: relative;
+	      	top: -80px;
+	      	left: 75px;
+	      	color: #FFFFFF;
+      	}
+      	.etiqueta p{
+      		font-family: Open Sans Regular;
+      	}
+      	#herramientas{
+	      	margin-top: 30px;
+	        width: 100%;
+	        
+	        background-color: #F5F5F5;
+	        border-top: 1px solid #E0E0E0;
+	        float: left;
+      	}
+      	#listaMedicamentos{
+        	margin-left: 25px;
+        	margin-top: 30px;
+        	margin-bottom: 30px;
+        	width: 63.5%;
+        	height: 600px;
+        	
+        	border: 1px solid #E0E0E0;
+        	float: left;
+      		background-color: white;
+
+
+      	}
+      	#tabla{
+
+      	}
+      	
+      	th p{
+      		margin-top: 1em;
+      		margin-bottom: 1em;
+      		font-family: 'Roboto';
+      		color: #212121;
+
+      	}
+      	td p{
+      		text-align: center;
+      		font-family: Open Sans Regular;
+      		margin-top: 1em;
+      		margin-bottom: 1em;
+      		font-size: 12px;
+      	}
+      	tbody tr:nth-child(even) {
+   			background-color: #FAFAFA;
+		}
+		#opcionesLista{
+			border-bottom: 1px solid #E0E0E0; 
+			height: 50px;
+
+		}
+		#tituloLista{
+			width: 120px;
+			padding: 13px 15px;
+			font-family: Open Sans Regular Light;
+			font-size: 20px;
+			color: #727272;
+	        font-weight: 300;
+	        float: left;
+
+		}
+		#botones{
+			padding: 7px;
+			float: right;
+			width: 300px;
+			height: 100%;
+			text-align: right;
+			color: #536DFE;
+
+		}
+		#log{
+			margin-left: 25px;
+        	margin-top: 30px;
+        	margin-bottom: 30px;
+        	width: 30%;
+        	height: 600px;
+        	background-color: white;
+        	border: 1px solid #E0E0E0;
+        	float: left;
+		}
+
 	</style>
 	<template>
 		<div id="divisorMedicamentos">
 			<div class = "tituloSeccion">
         		<h2>ADMINISTRACIÓN DE MEDICAMENTOS</h2>
-        		<p class = "subtituloSeccion">Opciones generales y estadísticas</p>
+        		<p class = "subtituloSeccion">Añadir, listar, eliminar y recetar medicamentos a los pacientes</p>
 
       		</div>
+		</div>
+		<div id="informacion">
+			<div id = "nuevos" class = "cajaInformacion">
+				<div class = "icono">
+					<iron-icon icon="assignment-returned"></iron-icon>
+				</div>
+				<div class = "numero"><h2>327</h2></div>
+				<div class = "etiqueta"><p>Nuevas inserciones</p></div>
+			</div>
+			<div id = "nuevos" class = "cajaInformacion">
+				<div class = "icono">
+					<iron-icon icon="maps:local-hospital"></iron-icon>
+				</div>
+				<div class = "numero"><h2>100</h2></div>
+				<div class = "etiqueta"><p>Nuevas recetas</p></div>
+			</div>
+			<div id = "nuevos" class = "cajaInformacion">
+				<div class = "icono">
+					<iron-icon icon="assignment-late"></iron-icon>
+				</div>
+				<div class = "numero"><h2>67</h2></div>
+				<div class = "etiqueta"><p>Órdenes pendientes</p></div>
+			</div>
+			<div id = "nuevos" class = "cajaInformacion">
+				<div class = "icono">
+					<iron-icon icon="account-balance-wallet"></iron-icon>
+				</div>
+				<div class = "numero"><h2>17</h2></div>
+				<div class = "etiqueta"><p>Transacciones hoy</p></div>
+			</div>
+		</div>
+		<div id = "herramientas">
+			
+				
+			<div id = "listaMedicamentos">
+				<div id = "opcionesLista">
+					<div id="tituloLista">Medicamentos</div>
+					<div id="botones">
+						<paper-icon-button icon="add"></paper-icon-button>
+						<paper-icon-button icon="search"></paper-icon-button>
+						<paper-icon-button icon="content-paste"></paper-icon-button>
+						<paper-icon-button icon="autorenew"></paper-icon-button>
+					</div>
+				</div>
+				<table style="width:100%;" id="tabla" cellspacing="0" cellpadding="0">
+					<tr>
+						<th><p>Nombre<iron-icon icon="arrow-drop-down"></iron-icon></p></th>
+						<th><p>Existencias<iron-icon icon="arrow-drop-down"></iron-icon></p></th>
+						<th><p>Inventario<iron-icon icon="arrow-drop-down"></iron-icon></p></th>
+						<th><p>Más</p></th>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Paracetamol</p></td>
+						<td><p>180</p></td>
+						<td><p>Consulta externa</p></td>
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+				</table>
+				<div id="paginas">
+					<div id="cantidadLista">Mostrando 1 a 10 de 24 entradas</div>
+					<div id="numeroPaginas"></div>
+				</div>
+			</div>
+
+			<div id="log">
+				<paper-tabs selected="0">
+					<paper-tab>Log</paper-tab>
+					<paper-tab>Actividades</paper-tab>
+				</paper-tabs>
+			</div>
+			
 		</div>
 		
 	</template>
