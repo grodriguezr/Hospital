@@ -10,9 +10,9 @@
 
 
 <dom-module id="registro-medicamento">
- <style>
+ <style is = "custom-style">
 
-
+/*
 paper-input{
   width: auto;
   margin-left: 10%;
@@ -65,8 +65,10 @@ paper-material{
 }
 
 
-
-
+*/
+paper-input{
+  text-align: left;
+}
 
  </style>
  <div>
@@ -76,27 +78,17 @@ paper-material{
     <form is="iron-form" >
  
     
-    <paper-input  label="Nombres"></paper-input>
-    <paper-input label="Apellidos" ></paper-input>
-    <paper-input label="Cargo" ></paper-input>
-    <paper-input label="Cedula"type="number"></paper-input>
-    <paper-input label="Direccion" ></paper-input>
-    <paper-input label="Edad" type="number"></paper-input>
-    <paper-dropdown-menu label="Sexo">
-    <paper-listbox class="dropdown-content">
-    <paper-item>Masculino</paper-item>
-    <br>
-    <paper-item>Femenino</paper-item>
+    <paper-input label="Nombre"></paper-input>
+    <paper-input label="Marca" ></paper-input>
+    <paper-input label="Lote" ></paper-input>
+    <paper-input label="Fecha de vencimiento"type="date"></paper-input>
+    <paper-input label="Cantidad" type="number" ></paper-input>
+  
 
-    </paper-listbox>
-    </paper-dropdown-menu>
-    <paper-input label="Telefono" type="number" ></paper-input>  
-    <paper-input label="Celular" type="number"></paper-input>    
-     <paper-input label="Email" type="email"></paper-input>
 
-        <paper-button raised > <iron-icon icon="send"></iron-icon> </paper-button>
- 
-        
+    <!--<paper-button dialog-dismiss>Aceptar</paper-button>
+    <paper-button dialog-dismiss>Cerrar</paper-button> -->
+            
 
     </form>
 

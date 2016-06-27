@@ -1,0 +1,175 @@
+<meta charset="utf-8">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/social-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../iron-list/iron-list.html">
+
+
+
+
+<dom-module is = "componente-receta">
+	<style is = "custom-style">
+		@font-face {
+	        font-family: Roboto Slab;
+	        src: url("../../fonts/Roboto_Slab/RobotoSlab-Thin.ttf");
+      	}
+      	@font-face {
+	        font-family: Open Sans Regular;
+	        src: url("../../fonts/Open_Sans/OpenSans-Regular.ttf");
+      	}
+      	@font-face {
+	        font-family: Open Sans Regular Light;
+	        src: url("../../fonts/Open_Sans/OpenSans-Light.ttf");
+      	}
+      	span{
+      		font-family: Open Sans Regular Light;
+      	}
+      	iron-list{ 
+			cursor: pointer;
+			
+
+		 }
+		#agregar{
+			width: 80%;
+			background-color: #B6B6B6;
+			margin: 0 10%;
+
+		}
+		#dialogListaM{
+			width: 40%;
+		}
+		/*.icono{
+  			position: absolute;
+  			right: 5px;
+  			top: 0px;
+  		}*/
+  		#elemento{
+  			width: 100%;
+  			height: 50px;
+  			border-bottom: solid 1px #E0E0E0;
+  		}
+  		.divNom{
+  			width: 400px;
+  			position: absolute;
+  			top: 5px;
+  		}
+  		.divCant{
+  			position: absolute;
+  			bottom: 5px;
+  		}
+  		.divIc{
+  			position: absolute;
+  			top: 5px;
+  			right: 0px;
+  		}
+  		.nom{
+  			font-size: 20px;
+  			color: #212121;
+  		}
+  		.cant{
+  			color: #727272;
+  		}
+  		paper-icon-button{		
+			color: #536DFE;
+		}
+		.seleccionado{
+			background: grey;
+            color: white;
+		}
+
+	</style>
+	<template>
+		<form is="iron-form" >
+		    <paper-input label="Cédula" type="number" ></paper-input>
+		    <paper-input label="Nombre"></paper-input>
+		    <paper-input label="Apellido"></paper-input>
+		    <br>
+		   	<paper-button id="agregar" on-click="listaMedicamentos">Agregar medicamentos</paper-button>
+		   	<paper-dialog id="dialogListaM" entry-animation="scale-up-animation" exit-animation="scale-down-animation">
+		   		<div id="contenedorLista">
+		   			<paper-input id="entrada" label="Buscar..." no-label-float type="search">
+						<paper-icon-button suffix icon="search" alt="search" title="search"></paper-icon-button>
+	    			</paper-input>
+			   		<iron-list id = "ironListElementos" style="overflow: auto; height: 300px;" items="[[listaMedicos]]" as="item" selectionEnabled on-click="elementoSeleccionado">
+			   			<template is="dom-bind">
+							
+						    <div id="elemento">
+						    	<!--<div class="divCod">
+							    	<span class="cod">
+							    		[[item.codigo]]
+							    	</span>
+						    	</div>-->
+						    	<div class="divNom">
+							    	<span class="nom">
+							    		[[item.nombre]]
+							    	</span>
+						    	</div>	
+						    	<div class="divCant">
+							    	<span class="cant">
+							    		Existencias: [[item.cantidad]]
+							    	</span>
+						    	</div>
+						    	<div class="divIc">
+							    	<span class="icono">
+							    		<paper-icon-button icon="check-box-outline-blank"></paper-icon-button>
+							    	</span>
+						    	</div>
+						    </div>
+							
+						</template>
+			   		</iron-list>
+			   	</div>	
+		   		<div class="buttons">
+					<paper-button dialog-dismiss>Aceptar</paper-button>
+					<paper-button dialog-dismiss>Cancelar</paper-button>
+					
+	    		</div>
+		   	</paper-dialog>
+
+		   
+		    <!--<paper-button dialog-dismiss>Aceptar</paper-button>
+		    <paper-button dialog-dismiss>Cerrar</paper-button> -->
+	    </form>
+
+	</template>
+	<script>
+		Polymer({
+		is: 'componente-receta',
+		properties: {
+		},
+		ready: function(){
+				
+    		this.listaMedicos = [
+    		{codigo:"0001", nombre:"Paracetamol", cantidad: "25"}, 
+    		{codigo:"0002", nombre:"Robitusin", cantidad: "32"}, 
+    		{codigo:"0003", nombre:"Acetaminofén", cantidad: "8"}, 
+    		{codigo:"0004", nombre:"Anoxicilina", cantidad: "5"}, 
+    		{codigo:"0005", nombre:"Dolex", cantidad: "14"}, 
+    		{codigo:"0006", nombre:"Preludyo", cantidad: "100"}, 
+    		{codigo:"0007", nombre:"Vitamina C", cantidad: "62"}, 
+    		{codigo:"0008", nombre:"Prednisorona", cantidad: "27"}, 
+    		{codigo:"0009", nombre:"Loratadina", cantidad: "70"}, 
+    		{codigo:"0010", nombre:"Leche de magnesia", cantidad: "2"}, 
+    		{codigo:"0011", nombre:"Pedialyte", cantidad: "53"}
+    		];
+
+		},
+		listaMedicamentos: function(event){
+			var dialogo = document.querySelector('#dialogListaM');
+	 		dialogo.toggle();
+		},
+		/*elementoSeleccionado: function(event){
+			var elemento = document.querySelector('#ironListElementos');
+		}*/
+		
+		
+		
+		});
+	</script>
+</dom-module>

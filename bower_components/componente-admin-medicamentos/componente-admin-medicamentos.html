@@ -1,5 +1,5 @@
 <link rel="import" href="../paper-material/paper-material.html">
-<link rel="import" href="../iron-icons/iron-icons.html">\
+<link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../iron-icons/social-icons.html">
 <link rel="import" href="../iron-icons/device-icons.html">
@@ -8,10 +8,11 @@
 <link rel="import" href="../paper-styles/paper-styles.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-tabs/paper-tabs.html">
-
-
-
-
+<link rel="import" href="../registro-medicamento/registro-medicamento.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../paper-tooltip/paper-tooltip.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../componente-receta/componente-receta.html">
 
 <dom-module id="componente-admin-medicamentos">
 	<style is="custom-style">
@@ -58,15 +59,19 @@
 	        margin-top: 0.5em;
 	        margin-bottom: 0em; 
       	}
+      
       	.cajaInformacion{
 	      	margin-top: 30px;
 	      	margin-left: 25px;
 	      	width: 230px;
 	      	height: 100px;
 	      	float: left;
+   	        border: 1px solid #B6B6B6;
+   	        border-radius: 5px;
+
       	}
-      	#nuevos{
-      		background-color: #0288D1;
+      	.nuevos{
+      		background-color: #FFFFFF;
       	}
       	.icono{
 	      	position: relative;
@@ -77,21 +82,21 @@
       	.icono iron-icon{
 	      	width: 80px;
 	      	height: 80px;
-	      	color: #FFFFFF;
+	      	color: #0288D1;
       	}
       	.numero{
 	      	position: relative;
 	      	top: -65px;
 	      	left: 75px;
 	      	font-size: 30px;
-	      	color: #FFFFFF;
+	      	color: #727272;
       	
       	}
       	.etiqueta{
 	      	position: relative;
 	      	top: -80px;
 	      	left: 75px;
-	      	color: #FFFFFF;
+	      	color: #727272;
       	}
       	.etiqueta p{
       		font-family: Open Sans Regular;
@@ -172,6 +177,25 @@
         	border: 1px solid #E0E0E0;
         	float: left;
 		}
+		#paginas{
+			border-top: 1px solid #E0E0E0; 
+
+		}
+		#numeroPaginas{
+			text-align: right;
+		}
+		paper-button{
+			padding: 0em;
+			margin: 0px;
+			width: 20px;
+		}
+		paper-dialog{
+			text-align: left;
+		}
+		#dialogRecetaM{
+			width: 50%;
+			height: 90%;
+		}
 
 	</style>
 	<template>
@@ -183,28 +207,28 @@
       		</div>
 		</div>
 		<div id="informacion">
-			<div id = "nuevos" class = "cajaInformacion">
+			<div class = "nuevos cajaInformacion">
 				<div class = "icono">
 					<iron-icon icon="assignment-returned"></iron-icon>
 				</div>
 				<div class = "numero"><h2>327</h2></div>
 				<div class = "etiqueta"><p>Nuevas inserciones</p></div>
 			</div>
-			<div id = "nuevos" class = "cajaInformacion">
+			<div class = "nuevos cajaInformacion">
 				<div class = "icono">
 					<iron-icon icon="maps:local-hospital"></iron-icon>
 				</div>
 				<div class = "numero"><h2>100</h2></div>
 				<div class = "etiqueta"><p>Nuevas recetas</p></div>
 			</div>
-			<div id = "nuevos" class = "cajaInformacion">
+			<div class = "nuevos cajaInformacion">
 				<div class = "icono">
 					<iron-icon icon="assignment-late"></iron-icon>
 				</div>
 				<div class = "numero"><h2>67</h2></div>
 				<div class = "etiqueta"><p>Órdenes pendientes</p></div>
 			</div>
-			<div id = "nuevos" class = "cajaInformacion">
+			<div class = "nuevos cajaInformacion">
 				<div class = "icono">
 					<iron-icon icon="account-balance-wallet"></iron-icon>
 				</div>
@@ -219,83 +243,144 @@
 				<div id = "opcionesLista">
 					<div id="tituloLista">Medicamentos</div>
 					<div id="botones">
-						<paper-icon-button icon="add"></paper-icon-button>
-						<paper-icon-button icon="search"></paper-icon-button>
-						<paper-icon-button icon="content-paste"></paper-icon-button>
-						<paper-icon-button icon="autorenew"></paper-icon-button>
+						<paper-icon-button id = "agregarM" on-click="addMedicamento" icon="add"></paper-icon-button>
+						<paper-dialog id="dialogAgregarM" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+	    						
+	    						<div><registro-medicamento></registro-medicamento></div>
+	    						<div class="buttons">
+	       							<paper-button dialog-dismiss>Aceptar</paper-button>
+	       							<paper-button dialog-dismiss>Cerrar</paper-button>
+
+	    						</div>
+						</paper-dialog>
+						<paper-icon-button id = "buscarM" icon="search" on-click="buscarMedicamento"></paper-icon-button>
+						<paper-dialog id="dialogBuscarM" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+	    						
+	    						<div>
+    								<paper-input label="Buscar..."type="search">
+	       								<paper-icon-button suffix icon="search"></paper-icon-button>
+
+    								</paper-input>
+	    						</div>
+	    						<div class="buttons">
+	    							<paper-button dialog-dismiss>Buscar</paper-button>
+	    							<paper-button dialog-dismiss>Cancelar</paper-button>
+	       							
+	    						</div>
+						</paper-dialog>
+						<paper-icon-button id = "recetaM" icon="content-paste" on-click="recetarMedicamento"></paper-icon-button>
+						<paper-dialog id = "dialogRecetaM" entry-animation="scale-up-animation" exit-animation="fade-out-animation" modal>
+							<div>
+								<componente-receta></componente-receta>
+							</div>
+							<div class="buttons">
+    							<paper-button dialog-dismiss>Aceptar</paper-button>
+    							<paper-button dialog-dismiss>Cancelar</paper-button>
+	       							
+	    					</div>
+						</paper-dialog>
+
+
+						<paper-icon-button id = "actualizarM" icon="autorenew"></paper-icon-button>
+						<paper-tooltip for="agregarM" offset="0">
+							Añadir
+						</paper-tooltip>
+						<paper-tooltip for="buscarM" offset="0">
+							Buscar
+						</paper-tooltip>
+						<paper-tooltip for="recetaM" offset="0">
+							Recetar
+						</paper-tooltip>
+						<paper-tooltip for="actualizarM" offset="0">
+							Actualizar
+						</paper-tooltip>
 					</div>
 				</div>
 				<table style="width:100%;" id="tabla" cellspacing="0" cellpadding="0">
 					<tr>
 						<th><p>Nombre<iron-icon icon="arrow-drop-down"></iron-icon></p></th>
 						<th><p>Existencias<iron-icon icon="arrow-drop-down"></iron-icon></p></th>
-						<th><p>Inventario<iron-icon icon="arrow-drop-down"></iron-icon></p></th>
+						
 						<th><p>Más</p></th>
 					</tr>
 					<tr>
 						<td><p>Paracetamol</p></td>
 						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
+						
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Vitamina C</p></td>
+						<td><p>180</p></td>
+						
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Ibuprofeno</p></td>
+						<td><p>180</p></td>
+						
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Acetaminofén</p></td>
+						<td><p>180</p></td>
+						
+						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
+					</tr>
+					<tr>
+						<td><p>Robitussin</p></td>
+						<td><p>180</p></td>
+						
 						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
 					</tr>
 					<tr>
 						<td><p>Paracetamol</p></td>
 						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
+						
 						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
 					</tr>
 					<tr>
 						<td><p>Paracetamol</p></td>
 						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
+						
 						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
 					</tr>
 					<tr>
 						<td><p>Paracetamol</p></td>
 						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
+						
 						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
 					</tr>
 					<tr>
 						<td><p>Paracetamol</p></td>
 						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
+						
 						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
 					</tr>
 					<tr>
 						<td><p>Paracetamol</p></td>
 						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
-						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
-					</tr>
-					<tr>
-						<td><p>Paracetamol</p></td>
-						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
-						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
-					</tr>
-					<tr>
-						<td><p>Paracetamol</p></td>
-						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
-						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
-					</tr>
-					<tr>
-						<td><p>Paracetamol</p></td>
-						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
-						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
-					</tr>
-					<tr>
-						<td><p>Paracetamol</p></td>
-						<td><p>180</p></td>
-						<td><p>Consulta externa</p></td>
+						
 						<td><p><a href="#">Detalles</a>|<a href="#">Editar</a></p></td>
 					</tr>
 				</table>
 				<div id="paginas">
-					<div id="cantidadLista">Mostrando 1 a 10 de 24 entradas</div>
-					<div id="numeroPaginas"></div>
+					<div id="cantidadLista">Mostrando 1 a 10 de 16 entradas</div>
+					<div id="numeroPaginas">
+						<paper-button raised>
+							<iron-icon icon="chevron-left"></iron-icon>
+						</paper-button>
+						<paper-button raised>
+							<iron-icon icon="chevron-right"></iron-icon>
+						</paper-button>
+
+						<!--<iron-icon icon="chevron-left"></iron-icon><a href="#">Anterior</a> 
+						<a href="#">1</a>
+						<a href="#">2</a>
+						<a href="#">Siguiente</a><iron-icon icon="chevron-right"></iron-icon>-->
+
+
+					</div>
 				</div>
 			</div>
 
@@ -317,6 +402,18 @@
 		},
 		verificar: function(){
 		},
+		addMedicamento: function(event){
+ 			var dialogo = document.querySelector('#dialogAgregarM');
+        	dialogo.toggle();
+	 	},
+	 	buscarMedicamento: function(event){
+ 			var dialogo = document.querySelector('#dialogBuscarM');
+        	dialogo.toggle();
+	 	},
+	 	recetarMedicamento: function(event){
+	 		var dialogo = document.querySelector('#dialogRecetaM');
+	 		dialogo.toggle();
+	 	}
 		
 	});
 </script>
