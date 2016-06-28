@@ -1,0 +1,185 @@
+<link rel="import" href="../google-apis/google-apis.html">
+<link rel="import" href="../google-chart/google-chart.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+
+<dom-module is = "componente-estadisticas">
+	<style is = "custom-style">
+		@font-face {
+	        font-family: Roboto Slab;
+	        src: url("../../fonts/Roboto_Slab/RobotoSlab-Thin.ttf");
+      	}
+      	@font-face {
+	        font-family: Open Sans Regular;
+	        src: url("../../fonts/Open_Sans/OpenSans-Regular.ttf");
+      	}
+      	@font-face {
+	        font-family: Open Sans Regular Light;
+	        src: url("../../fonts/Open_Sans/OpenSans-Light.ttf");
+      	}
+      	h2 {
+	        margin-top: 0em;
+	        margin-bottom: 0em;
+	        font-family: Roboto Slab;
+	        color: #212121;
+      	}
+		#divisorEstadisticas{
+	        height: 80px;
+	  		color: #212121;
+	  		width: 100%;
+	        background-color: #F5F5F5;
+	        border-bottom: 1px solid #E0E0E0; 
+  		}
+  		.tituloSeccion {
+	        position: absolute;
+	        top: 10px;
+	        left: 30px;
+     	}
+      	.subtituloSeccion{
+	        color: #727272;
+	        font-family: Open Sans Regular;
+      	}
+      	#graficoSemanalLineal{
+      		margin-left: 40px;
+	        margin-top: 30px;
+	        width: 90%;
+	        height: 351px;
+	        border: 1px solid #E0E0E0;
+	        float: left;
+      	}
+      	google-chart{
+	        width: 100%;
+	        background-color: white;
+      	}
+      	.cabecera{
+	        background-color: white;
+	        width: 100%;
+	        height: 50px;
+	        font-family: Open Sans Regular Light;
+	        font-size: 20px;
+	        border-bottom: 1px solid #E0E0E0;
+	        font-weight: 300;
+	        color: #727272;
+      	}
+      	.titulo{
+	        width: 50%;
+	        background-color: white;
+	        position: relative;
+	        top: 10px;
+	        left: 10px;
+      	}
+      	
+      	
+      	#graficosAdicionales{
+      		margin-top: 40px;
+	        width: 100%;
+	        background-color: #F5F5F5;
+	        border-top: 1px solid #E0E0E0;
+	        float: left;
+      	}
+      	#graficoTorta{
+      		margin-top: 30px;
+      		margin-left: 40px;
+      		width: 450px;
+	        border: 1px solid #E0E0E0;
+	        float: left;
+      	}
+      	#graficoColumna{
+      		margin-top: 30px;
+      		margin-left: 40px;
+      		width: 450px;
+	        border: 1px solid #E0E0E0;
+	        float: left;
+
+      	}
+      	.botones{
+      		position: relative;
+      		right: 0px;
+      		top: -20px;
+			text-align: right;
+			color: #536DFE;
+      	}
+
+	</style>
+	<template>
+		<div id="divisorEstadisticas">
+			<div class = "tituloSeccion">
+        		<h2>ESTADÍSTICAS</h2>
+        		<p class = "subtituloSeccion">Conjunto de estadísticas de inventario</p>
+      		</div>
+		</div>
+		<div id="graficos">
+			<div id = "graficoSemanalLineal">
+	            <div class = "cabecera">
+	            	<div class="titulo">Comparativa semanal</div>
+	            	<div class= "botones">
+	            		<paper-icon-button id = "botonOpc" icon="more-vert"></paper-icon-button>
+	            	</div>
+	            </div>
+	            <google-chart
+	              type='line'
+	              options='{}'
+	              data = '[["Dia", "Totales"],
+	                          ["Lun", 82],
+	                          ["Mar", 75],
+	                          ["Mie", 79],
+	                          ["Jue", 90],
+	                          ["Vie", 68],
+	                          ["Sab", 10],
+	                          ["Dom", 31]]'>
+	            </google-chart>
+          	</div>
+		</div>
+		<div id="graficosAdicionales">
+      		<div id="graficoTorta">
+      			<div class = "cabecera">
+            		<div class="titulo">Actividad en inventario</div>
+            		<div class= "botones">
+	            		<paper-icon-button id = "botonOpc" icon="more-vert"></paper-icon-button>
+	            	</div>
+            	</div>
+            	<google-chart
+	              type='pie'
+	              options='{}'
+	              cols = '[{"label": "Area", "type": "string"},
+                       	   {"label": "Cantidad", "type": "number"}]'
+              	  rows = '[["Consulta externa", 158],
+                       	   ["Urgencias", 215],
+                       	   ["Cirugia", 121]]'>
+            	</google-chart>
+      		</div>
+
+      		<div id="graficoColumna">
+      			<div class = "cabecera">
+            		<div class="titulo">Nivel total de inventarios</div>
+            		<div class= "botones">
+	            		<paper-icon-button id = "botonOpc" icon="more-vert"></paper-icon-button>
+	            	</div>
+            	</div>
+            	<google-chart
+	              type='column'
+	              options='{}'
+	              data = '[["Area", "Total"],
+                          ["Consulta externa", 1000],
+                          ["Cirugia", 1170],
+                          ["Urgencias", 660]]'><!--Borrado-->
+            	</google-chart>
+      		</div>
+      		<div id="">
+
+      		</div>
+        </div>
+	</template>
+
+</dom-module>
+<script>
+	Polymer({
+		is: 'componente-estadisticas',
+		properties: {
+		
+		},
+		
+		
+	});
+</script>

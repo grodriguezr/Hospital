@@ -23,6 +23,8 @@
 <link rel="import" href="../google-apis/google-apis.html">
 <link rel="import" href="../google-chart/google-chart.html">
 <link rel="import" href="../componente-admin-medicamentos/componente-admin-medicamentos.html">
+<link rel="import" href="../componente-estadisticas/componente-estadisticas.html">
+<link rel="import" href="../componente-admin-inventarios/componente-admin-inventarios.html">
 
 
 
@@ -223,13 +225,13 @@
               <div class = "imagen"><iron-icon icon="assessment"></iron-icon></div> 
               <div class = "nombre">MOSTRAR ESTADÍSTICAS</div>
               <div class = "descripcion">Estadísticas de uso de medicamentos y movimientos de inventario</div>
-              <div class="enlace"><a href="#">Ver más</a></div>
+              <div class="enlace"><a href="#" on-tap="enviaPaginaE">Ver más</a></div>
             </div>
             <div class = "contenido">
               <div class = "imagen"><iron-icon icon="assignment"></iron-icon></div> 
               <div class = "nombre">ADMINISTRAR INVENTARIO</div>
               <div class = "descripcion">Transferir medicamentos, edición de inventario y ajustes de stock</div>
-              <div class="enlace"><a href="#">Ver más</a></div>
+              <div class="enlace"><a href="#" on-tap="enviaPaginaI">Ver más</a></div>
             </div>
         </div>
         <div id="estadisticasGenerales">
@@ -244,8 +246,7 @@
                           ["Febrero", 1000, 400, 700],
                           ["Marzo", 1170, 460, 100],
                           ["Abril", 660, 1120, 450],
-                          ["Mayo", 1030, 540, 540]]'
-              >
+                          ["Mayo", 1030, 540, 540]]'><!--Borrado-->
             </google-chart>
           </div>
           <div id = "diagramaMasRecetados">
@@ -297,6 +298,12 @@
       <div>
         <componente-admin-medicamentos></componente-admin-medicamentos>
       </div>
+      <div>
+        <componente-estadisticas></componente-estadisticas>
+      </div>
+      <div>
+        <componente-admin-inventarios></componente-admin-inventarios>
+      </div>
     </iron-pages>
 	</template>
 	
@@ -311,6 +318,14 @@
       enviaPagina: function(event){
         var pages = document.querySelector('#paginas');
         pages.select(1);
+      },
+      enviaPaginaE: function(event){
+        var pages = document.querySelector('#paginas');
+        pages.select(2);
+      },
+      enviaPaginaI: function(event){
+        var pages = document.querySelector('#paginas');
+        pages.select(3);
       },
       seleccionaPagina: function(numero){
         var pages = document.querySelector('#paginas');
